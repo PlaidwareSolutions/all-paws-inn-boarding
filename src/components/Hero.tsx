@@ -58,32 +58,35 @@ export default function Hero() {
         style={{ x: wordX, opacity: fade }}
         className="absolute inset-x-0 bottom-24 z-10 pl-[clamp(1.25rem,4vw,4rem)] md:bottom-[16vh] md:pl-16"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4, ease: EASE }}
-          className="mb-1 font-serif text-[clamp(1.5rem,3.6vw,2.9rem)] leading-none text-bone md:text-ink"
-        >
-          Enjoy their
-        </motion.p>
         <div className="overflow-hidden">
           <motion.h1
             initial={{ y: '108%' }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.15, delay: 0.5, ease: EASE }}
-            className="d-mega whitespace-nowrap pb-[0.2em] pr-[0.12em] font-serif italic leading-[1] text-flame [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
+            transition={{ duration: 1.15, delay: 0.4, ease: EASE }}
+            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(3.4rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-flame [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
           >
-            Holiday.
+            Stay and
+            <br />
+            Play!
           </motion.h1>
         </div>
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
+          className="mt-3 max-w-md font-serif text-[clamp(1.3rem,2.4vw,2rem)] leading-[1.15] text-bone md:text-ink"
+        >
+          Caring for Clear Lake's pets safely and affordably.
+        </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1, ease: EASE }}
-          className="mt-6 max-w-sm font-sans text-[1.02rem] leading-[1.7] text-bone/95 md:text-ink-70"
+          className="mt-4 max-w-md font-sans text-[1.02rem] leading-[1.7] text-bone/95 md:text-ink-70"
         >
-          Premium pet boarding and daycare — designed around happier
-          pets and calmer humans.
+          We offer protected, stress-free boarding tailored to your pet. From a quick
+          day-stay to a week-long getaway, we keep your four-legged family member happy,
+          active, and thoroughly pampered.
         </motion.p>
 
         <motion.p
@@ -106,7 +109,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.3, duration: 0.8, ease: EASE }}
         style={{ opacity: fade }}
-        className="absolute right-6 top-[22%] z-20 h-24 w-24 md:left-[37%] md:right-auto md:top-[26%] md:h-28 md:w-28"
+        className="absolute right-6 top-[22%] z-20 h-24 w-24 md:left-[calc(47%-3.5rem)] md:right-auto md:top-[10%] md:h-28 md:w-28"
       >
         <svg viewBox="0 0 100 100" className="spin-slow h-full w-full">
           <path id="hc" d="M50,50 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0" fill="none" />
