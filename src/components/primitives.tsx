@@ -38,13 +38,13 @@ export function Words({
   lines,
   className = '',
   italicLine,
-  flameLine,
+  accentLine,
   delay = 0,
 }: {
   lines: string[]
   className?: string
   italicLine?: number
-  flameLine?: number
+  accentLine?: number
   delay?: number
 }) {
   return (
@@ -58,7 +58,7 @@ export function Words({
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em]">
           <motion.span
-            className={`block ${italicLine === i ? 'italic' : ''} ${flameLine === i ? 'text-flame' : ''}`}
+            className={`block ${italicLine === i ? 'italic' : ''} ${accentLine === i ? 'text-teal' : ''}`}
             variants={{
               h: { y: '105%', opacity: 0 },
               v: { y: 0, opacity: 1, transition: { duration: 0.9, ease: EASE } },

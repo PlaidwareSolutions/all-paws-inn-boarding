@@ -66,9 +66,9 @@ export default function Navbar() {
 
           <div className="ml-auto flex flex-1 flex-col justify-center lg:justify-start">
             {/* phone plate — bleeds to the right edge, starting where the mark ends */}
-            <div className="hidden justify-end bg-butter py-3 pl-10 pr-[clamp(1.25rem,4vw,4rem)] lg:flex">
+            <div className="hidden justify-end bg-teal-soft py-3 pl-10 pr-[clamp(1.25rem,4vw,4rem)] lg:flex">
               <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="group text-right">
-                <span className="block font-sans text-[0.64rem] font-bold uppercase tracking-[0.2em] text-ink/60">
+                <span className="block font-sans text-[0.64rem] font-bold uppercase tracking-[0.2em] text-ink/70">
                   {footer.area}
                 </span>
                 <span className="mt-0.5 block font-sans text-[1.4rem] font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-ember">
@@ -89,7 +89,7 @@ export default function Navbar() {
                 onClick={() => openBooking()}
                 className="group hidden items-center gap-2 rounded-full bg-flame px-6 py-3 font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bone shadow-[0_12px_30px_-12px_rgba(244,85,29,0.8)] transition-colors duration-400 hover:bg-ember sm:flex"
               >
-                Book their stay
+                Book now
                 <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
 
@@ -121,7 +121,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between px-6 py-5">
               <span className="font-sans text-[1.3rem] font-extrabold uppercase tracking-tight">
-                All <span className="italic text-flame">Paws</span> Inn
+                All <span className="italic text-teal">Paws</span> Inn
               </span>
               <button
                 onClick={() => setOpen(false)}
@@ -151,7 +151,7 @@ export default function Navbar() {
                         href={l.href}
                         aria-current={isCurrentPage(l.href) ? 'page' : undefined}
                         className={`flex-1 py-3.5 font-serif text-[9vw] leading-[1.15] ${
-                          isCurrentPage(l.href) ? 'text-flame' : ''
+                          isCurrentPage(l.href) ? 'text-teal' : ''
                         }`}
                       >
                         {l.label}
@@ -205,7 +205,7 @@ export default function Navbar() {
                   setOpen(false)
                   openBooking()
                 }}
-                className="w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-flame"
+                className="w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-teal"
               >
                 Book →
               </motion.button>
@@ -267,8 +267,8 @@ function NavItem({ link }: { link: NavLink }) {
       <a
         href={link.href}
         aria-current={current ? 'page' : undefined}
-        className={`ul-draw whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 hover:text-flame xl:px-4 ${
-          current ? 'text-flame' : 'text-ink'
+        className={`ul-draw whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 hover:text-teal xl:px-4 ${
+          current ? 'text-teal' : 'text-ink'
         }`}
       >
         {link.label}
@@ -294,7 +294,7 @@ function NavItem({ link }: { link: NavLink }) {
         aria-expanded={open}
         aria-current={current ? 'page' : undefined}
         className={`group flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 xl:px-4 ${
-          open || current ? 'text-flame' : 'text-ink hover:text-flame'
+          open || current ? 'text-teal' : 'text-ink hover:text-teal'
         }`}
       >
         <span className="ul-draw">{link.label}</span>
@@ -327,7 +327,7 @@ function NavItem({ link }: { link: NavLink }) {
                     <a
                       href={c.href}
                       onClick={() => setOpen(false)}
-                      className="block px-5 py-3.5 font-sans text-[0.95rem] font-semibold text-ink transition-colors duration-200 hover:bg-ink/[0.04] hover:text-flame"
+                      className="block px-5 py-3.5 font-sans text-[0.95rem] font-semibold text-ink transition-colors duration-200 hover:bg-ink/[0.04] hover:text-teal"
                     >
                       {c.label}
                     </a>
@@ -356,17 +356,17 @@ function ContactPanel() {
       <div className="p-5">
         <ul className="space-y-2.5 font-sans text-[0.86rem] text-ink-70">
           <li className="flex items-start gap-2.5">
-            <MapPin size={15} className="mt-0.5 shrink-0 text-flame" aria-hidden="true" />
+            <MapPin size={15} className="mt-0.5 shrink-0 text-teal" aria-hidden="true" />
             <span>{footer.location}</span>
           </li>
           <li className="flex items-center gap-2.5">
-            <Phone size={14} className="shrink-0 text-flame" aria-hidden="true" />
+            <Phone size={14} className="shrink-0 text-teal" aria-hidden="true" />
             <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
               {footer.phone}
             </a>
           </li>
           <li className="flex items-center gap-2.5">
-            <Clock size={14} className="shrink-0 text-flame" aria-hidden="true" />
+            <Clock size={14} className="shrink-0 text-teal" aria-hidden="true" />
             <span>{footer.hours}</span>
           </li>
         </ul>

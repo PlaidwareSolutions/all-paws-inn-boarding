@@ -63,7 +63,7 @@ export default function Hero() {
             initial={{ y: '108%' }}
             animate={{ y: 0 }}
             transition={{ duration: 1.15, delay: 0.4, ease: EASE }}
-            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(3.4rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-flame [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
+            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(3.4rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-teal [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
           >
             Stay and
             <br />
@@ -96,9 +96,9 @@ export default function Hero() {
           className="mt-4 flex max-w-sm flex-wrap items-center gap-x-2.5 gap-y-1 font-sans text-[0.82rem] font-bold uppercase tracking-[0.1em] text-bone/95 md:text-ink/80"
         >
           <span>Houston</span>
-          <span className="text-flame">·</span>
+          <span className="text-teal">·</span>
           <span>Clear Lake</span>
-          <span className="text-flame">·</span>
+          <span className="text-teal">·</span>
           <span>Five minutes from Space Center Houston</span>
         </motion.p>
       </motion.div>
@@ -117,7 +117,7 @@ export default function Hero() {
             <textPath href="#hc">they deserve this · they deserve this · </textPath>
           </text>
         </svg>
-        <span className="absolute inset-0 m-auto grid h-8 w-8 place-items-center rounded-full bg-flame text-[0.7rem] text-bone">
+        <span className="absolute inset-0 m-auto grid h-8 w-8 place-items-center rounded-full bg-teal text-[0.7rem] text-bone">
           ✦
         </span>
       </motion.div>

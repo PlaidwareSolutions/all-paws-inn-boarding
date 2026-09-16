@@ -19,13 +19,13 @@ export const slug = (s: string) =>
 
 /* ── Our story ── */
 export const story = {
-  heading: ['Built by people', 'who hate leaving.'],
+  heading: ['Twenty years of pets,', 'now in Clear Lake.'],
   body: [
-    "ALL PAWS INN started in 2019, in a converted space near Clear Lake, Houston — because our founder couldn't find a single place she'd actually feel right leaving her own dog.",
-    'Six years on we still run one house, minutes from Space Center Houston. The rule that started it hasn’t moved: if we wouldn’t board our own, we don’t board yours.',
+    'ALL PAWS INN is run by David and Andrea Little, who have spent more than twenty years in pet hospitality — building and running boarding, daycare and grooming houses across the United States.',
+    'All of that experience now sits on one street in Clear Lake, Houston. Our staff bring 20+ years of hands-on animal care between them, and boarding is not a sideline here — it is the only thing we do, and we intend to do it better than anyone in the business.',
   ],
-  pull: '“We built the place we wanted to drop our own dogs off at. Then we opened the doors.”',
-  signature: 'Nadia Okafor — Founder',
+  pull: '“We have looked after pets all over the country. Clear Lake is where we wanted to put down roots.”',
+  signature: 'David & Andrea Little — Founders',
   image: U('1573865526739-10659fec78a5', 1500),
   imageAlt: 'A relaxed ginger cat stretched out, half asleep',
 }
@@ -55,7 +55,6 @@ export const heroImages = [
 /* ── Accommodations — editorial bands ── */
 export interface Suite {
   id: string
-  n: string
   name: string
   price: number
   blurb: string
@@ -67,7 +66,6 @@ export interface Suite {
 export const suites: Suite[] = [
   {
     id: 'condo',
-    n: '01',
     name: 'Condo',
     price: 30,
     blurb: 'A cozy, comfortable condo for the ones who like their world close and familiar.',
@@ -76,7 +74,6 @@ export const suites: Suite[] = [
   },
   {
     id: 'standard',
-    n: '02',
     name: 'Standard',
     price: 55,
     blurb: 'More room, more window, more play. The one most parents pick, by a mile.',
@@ -86,7 +83,6 @@ export const suites: Suite[] = [
   },
   {
     id: 'luxury',
-    n: '03',
     name: 'Luxury',
     price: 75,
     blurb: 'A private wing, a carer who is theirs alone, and a day shaped entirely around them.',
@@ -95,7 +91,6 @@ export const suites: Suite[] = [
   },
   {
     id: 'premium',
-    n: '04',
     name: 'Premium',
     price: 60,
     blurb: 'Extra room and garden views, with a full day of play built in.',
@@ -106,7 +101,6 @@ export const suites: Suite[] = [
 
 /* ── Services — each one gets its own band on the page ── */
 export interface Service {
-  n: string
   title: string
   line: string
   points: string[]
@@ -117,7 +111,6 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    n: '01',
     title: 'Dog Boarding',
     line: 'Private suites, carers awake all night, a report card every morning.',
     points: [
@@ -131,11 +124,10 @@ export const services: Service[] = [
     imageAlt: 'A dog asleep on a plush bed in a bright suite',
   },
   {
-    n: '02',
     title: 'Dog Daycare',
     line: 'Full and half days of structured play, rest and enrichment.',
     points: [
-      'Doors open at 6:30am, last pickup at 7:00pm',
+      'Doors open at 8:00am, last pickup at 6:00pm',
       'Play groups matched by size and temperament',
       'An enforced quiet hour after lunch',
       '$10 off when it is added to a boarding stay',
@@ -145,7 +137,6 @@ export const services: Service[] = [
     imageAlt: 'Two dogs mid-play in a sunlit yard',
   },
   {
-    n: '03',
     title: 'Cat Boarding',
     line: 'A dog-free floor with climbing walls, sun shelves and quiet corners.',
     points: [
@@ -159,7 +150,6 @@ export const services: Service[] = [
     imageAlt: 'A cat perched on a sunlit shelf by a window',
   },
   {
-    n: '04',
     title: 'Cat Daycare',
     line: 'Calm, supervised daytime stays — their own space, their own pace.',
     points: [
@@ -173,7 +163,6 @@ export const services: Service[] = [
     imageAlt: 'A ginger cat stretched out and half asleep',
   },
   {
-    n: '05',
     title: 'Grooming',
     line: 'Baths, brush-outs and full grooms, timed around their stay.',
     points: [
@@ -193,33 +182,20 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
-  photo: string
+  /** A real photograph of that person — until we have one, the card shows their initials. */
+  photo?: string
 }
 
 export const team: TeamMember[] = [
   {
-    name: 'Nadia Okafor',
-    role: 'Founder & Head Innkeeper',
-    bio: 'Started All Paws Inn in 2019 because she couldn’t find a place she trusted with her own dog. Still on the floor most mornings.',
-    photo: U('1573497019940-1c28c88b4f3e', 900),
+    name: 'David Little',
+    role: 'Co-Founder',
+    bio: 'Twenty-plus years in pet hospitality across the United States, from boarding houses to grooming rooms. Runs the floor, the suites and the overnight rota.',
   },
   {
-    name: 'Marcus Teel',
-    role: 'Lead Veterinary Technician',
-    bio: 'On-site every shift, vet on call around the clock. Keeps the house’s health records and medication schedule.',
-    photo: U('1500648767791-00dcc994a43e', 900),
-  },
-  {
-    name: 'Priya Anand',
-    role: 'Daycare & Play Lead',
-    bio: 'Builds every play group by size and temperament, and runs the enrichment sessions guests love most.',
-    photo: U('1580489944761-15a19d654956', 900),
-  },
-  {
-    name: 'Jordan Reyes',
-    role: 'Grooming Lead',
-    bio: 'Fear-Free certified groomer for dogs and cats — baths, brush-outs and full grooms, timed around each stay.',
-    photo: U('1568602471122-7832951cc4c5', 900),
+    name: 'Andrea Little',
+    role: 'Co-Founder',
+    bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, grooming appointments and every guest’s daily routine.',
   },
 ]
 
@@ -229,14 +205,12 @@ export interface PriceItem {
   price: string
 }
 export interface PriceCategory {
-  n: string
   title: string
   items: PriceItem[]
 }
 
 export const pricingCategories: PriceCategory[] = [
   {
-    n: '01',
     title: 'Dog Daycare',
     items: [
       { label: 'Full Day', price: '$35' },
@@ -246,7 +220,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '02',
     title: 'Cat Daycare',
     items: [
       { label: 'Full Day', price: '$20' },
@@ -254,7 +227,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '03',
     title: 'Daycare Membership',
     items: [
       { label: '1 Week (6 days)', price: '$192' },
@@ -264,7 +236,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '04',
     title: 'Dog Boarding',
     items: [
       { label: 'Condo', price: '$30' },
@@ -274,7 +245,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '05',
     title: 'Cat Boarding',
     items: [
       { label: 'Condo', price: '$25' },
@@ -282,7 +252,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '06',
     title: 'Dog Grooming',
     items: [
       { label: 'Bath & Brush', price: '$35' },
@@ -292,7 +261,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    n: '07',
     title: 'Cat Grooming',
     items: [
       { label: 'Bath & Brush', price: '$40' },
@@ -311,28 +279,45 @@ export const footer = {
   cityLine: 'Houston, TX 77062',
   location: '1051 Pineloch Dr. Ste 700, Houston, TX 77062',
   area: 'Clear Lake, Houston',
-  phone: '(713) 555-0192',
+  phone: '(713) 966-2500',
   email: 'stay@allpawsinn.com',
-  hours: 'Reception 6:30am – 7:00pm · Care 24/7',
+  hours: 'Mon – Fri 8am – 6pm · Sat 9am – 5pm · Sun closed',
   instagram: '@allpawsinn',
 }
 
+/* ── Social profiles ──
+   PLACEHOLDER URLS: these point at each platform's front page, not at the real
+   profiles — swap in the actual links when they're known. Guessing a handle risks
+   sending people to someone else's account. */
+export interface Social {
+  id: 'instagram' | 'facebook' | 'tiktok'
+  label: string
+  handle: string
+  url: string
+}
+
+export const socials: Social[] = [
+  { id: 'instagram', label: 'Instagram', handle: '@allpawsinn', url: 'https://instagram.com' },
+  { id: 'facebook', label: 'Facebook', handle: 'All Paws Inn', url: 'https://facebook.com' },
+  { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
+]
+
 /** Condensed for the footer — the day-by-day table belongs on the Contact page. */
 export const hoursSummary: [string, string][] = [
-  ['Mon – Fri', '6:30am – 7:00pm'],
-  ['Saturday', '7:00am – 5:00pm'],
-  ['Sunday', '12:00pm – 5:00pm'],
+  ['Mon – Fri', '8:00am – 6:00pm'],
+  ['Saturday', '9:00am – 5:00pm'],
+  ['Sunday', 'Closed'],
 ]
 
 /** Front-desk hours, day by day. Overnight care runs around the clock regardless. */
 export const openingHours: [string, string][] = [
-  ['Mon', '6:30am – 7:00pm'],
-  ['Tue', '6:30am – 7:00pm'],
-  ['Wed', '6:30am – 7:00pm'],
-  ['Thu', '6:30am – 7:00pm'],
-  ['Fri', '6:30am – 7:00pm'],
-  ['Sat', '7:00am – 5:00pm'],
-  ['Sun', '12:00pm – 5:00pm'],
+  ['Mon', '8:00am – 6:00pm'],
+  ['Tue', '8:00am – 6:00pm'],
+  ['Wed', '8:00am – 6:00pm'],
+  ['Thu', '8:00am – 6:00pm'],
+  ['Fri', '8:00am – 6:00pm'],
+  ['Sat', '9:00am – 5:00pm'],
+  ['Sun', 'Closed'],
 ]
 
 export const usd = (n: number) =>

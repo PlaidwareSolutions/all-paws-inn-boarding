@@ -15,9 +15,9 @@ export default function Story() {
 
         {/* copy */}
         <div className="flex flex-col justify-center gutter py-20 md:py-28">
-          <SectionTag n="02" name="Our story" className="mb-8" />
+          <SectionTag name="Our story" className="mb-8" />
           <h2 id="story-h" className="d-2 font-serif text-ink">
-            <Words lines={story.heading} italicLine={1} flameLine={1} />
+            <Words lines={story.heading} italicLine={1} accentLine={1} />
           </h2>
 
           <div className="mt-8 max-w-md space-y-5">
@@ -33,7 +33,7 @@ export default function Story() {
             ))}
           </div>
 
-          <Reveal className="mt-10 border-l-2 border-flame pl-5">
+          <Reveal className="mt-10 border-l-2 border-teal pl-5">
             <p className="font-serif text-[clamp(1.3rem,2.4vw,1.9rem)] italic leading-snug text-ink">
               {story.pull}
             </p>

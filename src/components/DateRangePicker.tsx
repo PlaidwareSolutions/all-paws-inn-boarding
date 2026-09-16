@@ -95,7 +95,7 @@ export function DateRangePicker({
               aria-pressed={on}
               className={`rounded-full border px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.08em] transition-colors duration-200 ${
                 on
-                  ? 'border-flame bg-flame text-bone'
+                  ? 'border-teal bg-teal text-bone'
                   : 'border-ink/20 text-ink/72 hover:border-ink/50 hover:text-ink'
               }`}
             >
@@ -113,7 +113,7 @@ export function DateRangePicker({
           aria-pressed={activePreset === 'custom'}
           className={`rounded-full border px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.08em] transition-colors duration-200 ${
             activePreset === 'custom'
-              ? 'border-flame bg-flame text-bone'
+              ? 'border-teal bg-teal text-bone'
               : 'border-ink/20 text-ink/72 hover:border-ink/50 hover:text-ink'
           }`}
         >
@@ -174,12 +174,12 @@ export function DateRangePicker({
               aria-label={day}
               aria-current={isStart || isEnd ? 'date' : undefined}
               className={`relative h-10 text-[0.88rem] font-semibold transition-colors duration-150 disabled:pointer-events-none disabled:text-ink/25 ${
-                inRange ? 'bg-flame/25 text-ink' : ''
+                inRange ? 'bg-teal/25 text-ink' : ''
               } ${isStart && !sameDay ? 'rounded-l-full' : ''} ${isEnd && !sameDay ? 'rounded-r-full' : ''} ${
                 sameDay ? 'rounded-full' : ''
               } ${
                 isStart || isEnd
-                  ? 'bg-flame text-bone'
+                  ? 'bg-teal text-bone'
                   : past
                   ? ''
                   : 'text-ink hover:bg-ink/[0.07]'
@@ -242,7 +242,7 @@ export function DateRangeField({
       >
         <span className="label text-ink/55">{label}</span>
         <span className="flex items-center gap-2.5 text-ink">
-          <CalendarDays size={16} className="shrink-0 text-flame" />
+          <CalendarDays size={16} className="shrink-0 text-teal" />
           <span className="font-serif text-[1.12rem] leading-none">
             {value.checkIn && value.checkOut ? stayLabel(value.checkIn, value.checkOut) : 'Pick your dates'}
           </span>

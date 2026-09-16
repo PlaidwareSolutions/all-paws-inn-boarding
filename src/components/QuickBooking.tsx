@@ -68,7 +68,7 @@ export default function QuickBooking() {
                   aria-pressed={on}
                   className={`flex items-center gap-2 rounded-full border py-1.5 pl-1.5 pr-4 font-sans text-[0.72rem] font-bold uppercase tracking-[0.1em] transition-all duration-300 ${
                     on
-                      ? 'border-flame bg-flame text-bone shadow-[0_10px_24px_-10px_rgba(244,85,29,0.75)]'
+                      ? 'border-teal bg-teal text-bone shadow-[0_10px_24px_-10px_rgba(40,114,147,0.75)]'
                       : 'border-ink/20 text-ink/70 hover:border-ink/50 hover:text-ink'
                   }`}
                 >
@@ -93,7 +93,7 @@ export default function QuickBooking() {
               type="button"
               aria-label="Fewer pets"
               onClick={() => setCount(c => Math.max(1, c - 1))}
-              className="grid h-8 w-8 place-items-center rounded-full border border-ink/20 transition-colors duration-300 hover:border-flame hover:bg-flame hover:text-bone"
+              className="grid h-8 w-8 place-items-center rounded-full border border-ink/20 transition-colors duration-300 hover:border-teal hover:bg-teal hover:text-bone"
             >
               <Minus size={13} />
             </button>
@@ -102,7 +102,7 @@ export default function QuickBooking() {
               type="button"
               aria-label="More pets"
               onClick={() => setCount(c => Math.min(6, c + 1))}
-              className="grid h-8 w-8 place-items-center rounded-full border border-ink/20 transition-colors duration-300 hover:border-flame hover:bg-flame hover:text-bone"
+              className="grid h-8 w-8 place-items-center rounded-full border border-ink/20 transition-colors duration-300 hover:border-teal hover:bg-teal hover:text-bone"
             >
               <Plus size={13} />
             </button>

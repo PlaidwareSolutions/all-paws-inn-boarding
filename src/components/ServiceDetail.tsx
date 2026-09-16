@@ -12,12 +12,12 @@ export default function ServiceDetail({ service }: { service: Service }) {
     <>
       <section aria-labelledby="svc-h" className="bg-paper py-20 md:py-28">
         <div className="gutter">
-          <SectionTag n={service.n} name="Services" className="mb-8" />
+          <SectionTag name="Services" className="mb-8" />
 
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
             <div>
               <h1 id="svc-h" className="d-2 font-serif text-ink">
-                <Words lines={[service.title]} flameLine={0} />
+                <Words lines={[service.title]} accentLine={0} />
               </h1>
               <p className="lede mt-5 max-w-md text-ink-70">{service.line}</p>
 
@@ -28,7 +28,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
                       key={p}
                       className="flex items-start gap-3 border-b border-ink/15 py-3.5 font-sans text-[0.98rem] leading-[1.6] text-ink-70"
                     >
-                      <Check size={16} strokeWidth={2.5} className="mt-1 shrink-0 text-flame" aria-hidden="true" />
+                      <Check size={16} strokeWidth={2.5} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                       {p}
                     </li>
                   ))}
@@ -62,14 +62,14 @@ export default function ServiceDetail({ service }: { service: Service }) {
               <li key={o.title}>
                 <a
                   href={servicePage(o.title)}
-                  className="group flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-flame/60"
+                  className="group flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
                 >
-                  <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-flame">
+                  <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-teal">
                     {o.title}
                   </span>
                   <ArrowRight
                     size={15}
-                    className="shrink-0 text-flame transition-transform duration-300 group-hover:translate-x-1"
+                    className="shrink-0 text-teal transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
               </li>

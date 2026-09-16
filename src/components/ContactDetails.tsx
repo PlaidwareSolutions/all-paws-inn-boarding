@@ -11,14 +11,14 @@ export default function ContactDetails() {
   return (
     <section id="contact-details" aria-labelledby="contact-h" className="bg-paper py-24 md:py-32">
       <div className="gutter">
-        <SectionTag n="01" name="Contact" className="mb-8" />
+        <SectionTag name="Contact" className="mb-8" />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
           <h2 id="contact-h" className="d-1 font-serif text-ink md:col-span-7">
-            <Words lines={['Come and see', 'the house.']} italicLine={1} flameLine={1} />
+            <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} />
           </h2>
           <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
-            We are five minutes from Space Center Houston, on the same street since 2019.
+            We are five minutes from Space Center Houston, in the heart of Clear Lake.
             Drop in for a tour — no appointment needed.
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function ContactDetails() {
             <Reveal>
               <ul className="border-t border-ink/20">
                 <li className="flex items-start gap-4 border-b border-ink/15 py-5">
-                  <MapPin size={18} className="mt-1 shrink-0 text-flame" aria-hidden="true" />
+                  <MapPin size={18} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                   <span>
                     <span className="label block text-ink/55">Address</span>
                     <a
@@ -45,7 +45,7 @@ export default function ContactDetails() {
                 </li>
 
                 <li className="flex items-start gap-4 border-b border-ink/15 py-5">
-                  <Phone size={18} className="mt-1 shrink-0 text-flame" aria-hidden="true" />
+                  <Phone size={18} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                   <span>
                     <span className="label block text-ink/55">Phone</span>
                     <a
@@ -58,7 +58,7 @@ export default function ContactDetails() {
                 </li>
 
                 <li className="flex items-start gap-4 border-b border-ink/15 py-5">
-                  <Mail size={18} className="mt-1 shrink-0 text-flame" aria-hidden="true" />
+                  <Mail size={18} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                   <span>
                     <span className="label block text-ink/55">Email</span>
                     <a
@@ -71,7 +71,7 @@ export default function ContactDetails() {
                 </li>
 
                 <li className="flex items-start gap-4 border-b border-ink/15 py-5">
-                  <Instagram size={18} className="mt-1 shrink-0 text-flame" aria-hidden="true" />
+                  <Instagram size={18} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                   <span>
                     <span className="label block text-ink/55">Instagram</span>
                     <a

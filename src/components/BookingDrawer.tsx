@@ -17,9 +17,12 @@ const petOpts = [
 const DAYCARE_RATE: Record<PetType, number> = { DOGS: 35, CATS: 20, OTHER: 35 }
 
 const PAPER = '#F4EDE0'
+/* selection highlight — the logo teal, same value as `teal` in tailwind.config.js.
+   Inline because these buttons set it alongside other inline styles. */
+const SELECTED = '#287293'
 const labelCls = 'mb-2 block font-sans text-[0.6rem] uppercase tracking-[0.24em] text-ink/62'
 const textField =
-  'w-full border-b border-ink/25 bg-transparent pb-2 font-serif text-[1.1rem] text-ink placeholder:font-sans placeholder:text-[0.98rem] placeholder:text-ink/50 focus:border-flame focus:outline-none'
+  'w-full border-b border-ink/25 bg-transparent pb-2 font-serif text-[1.1rem] text-ink placeholder:font-sans placeholder:text-[0.98rem] placeholder:text-ink/50 focus:border-teal focus:outline-none'
 
 export default function BookingDrawer() {
   const { isOpen, closeBooking, draft, setDraft } = useBooking()
@@ -176,17 +179,17 @@ export default function BookingDrawer() {
                               aria-pressed={on}
                               style={
                                 on
-                                  ? { backgroundColor: '#F4551D', borderColor: '#F4551D', color: '#FBF7EF' }
+                                  ? { backgroundColor: SELECTED, borderColor: SELECTED, color: '#FBF7EF' }
                                   : undefined
                               }
                               className={`relative flex flex-col items-center gap-2.5 rounded-2xl border-2 px-2 py-3.5 font-sans text-[0.66rem] font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
                                 on
-                                  ? 'shadow-[0_10px_24px_-10px_rgba(244,85,29,0.7)]'
+                                  ? 'shadow-[0_10px_24px_-10px_rgba(40,114,147,0.7)]'
                                   : 'border-ink/20 text-ink/62 hover:border-ink/40 hover:text-ink/80'
                               }`}
                             >
                               {on && (
-                                <span className="absolute right-1.5 top-1.5 z-10 grid h-5 w-5 place-items-center rounded-full bg-white text-flame">
+                                <span className="absolute right-1.5 top-1.5 z-10 grid h-5 w-5 place-items-center rounded-full bg-white text-teal">
                                   <Check size={11} strokeWidth={3.5} />
                                 </span>
                               )}
@@ -231,7 +234,7 @@ export default function BookingDrawer() {
                     </div>
 
                     {daycare ? (
-                      <div className="rounded-2xl border-2 border-flame/40 bg-flame/[0.07] p-4">
+                      <div className="rounded-2xl border-2 border-teal/40 bg-teal/[0.07] p-4">
                         <span className={labelCls}>Daycare</span>
                         <p className="font-serif text-[1.15rem] text-ink">A full day with us</p>
                         <p className="mt-1.5 font-sans text-[0.85rem] text-ink-70">
@@ -250,7 +253,7 @@ export default function BookingDrawer() {
                               key={s.id}
                               type="button"
                               onClick={() => setSuiteId(s.id)}
-                              style={on ? { borderColor: '#F4551D', backgroundColor: 'rgba(244,85,29,0.08)' } : undefined}
+                              style={on ? { borderColor: SELECTED, backgroundColor: 'rgba(40,114,147,0.08)' } : undefined}
                               className={`flex w-full items-center gap-3.5 border-2 p-2.5 text-left transition-all duration-200 ${
                                 on ? '' : 'border-ink/15 hover:border-ink/40'
                               }`}
@@ -267,7 +270,7 @@ export default function BookingDrawer() {
                                 </span>
                               </span>
                               <span
-                                style={on ? { backgroundColor: '#F4551D', borderColor: '#F4551D' } : undefined}
+                                style={on ? { backgroundColor: SELECTED, borderColor: SELECTED } : undefined}
                                 className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 ${
                                   on ? 'text-white' : 'border-ink/25'
                                 }`}
@@ -323,7 +326,7 @@ export default function BookingDrawer() {
                     transition={{ duration: 0.5, ease: EASE }}
                     className="py-8"
                   >
-                    <p className="font-serif text-[clamp(2.6rem,11vw,3.5rem)] italic leading-[0.95] text-flame">
+                    <p className="font-serif text-[clamp(2.6rem,11vw,3.5rem)] italic leading-[0.95] text-teal">
                       See you<br />soon.
                     </p>
                     <p className="mt-6 max-w-xs font-sans text-[1.02rem] leading-[1.7] text-ink/80">

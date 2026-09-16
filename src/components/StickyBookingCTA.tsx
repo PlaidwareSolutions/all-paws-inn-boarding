@@ -29,7 +29,7 @@ export default function StickyBookingCTA() {
             onClick={() => openBooking()}
             className="flex w-full items-center justify-center gap-2.5 rounded-full bg-flame py-3.5 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-bone"
           >
-            Book their stay
+            Book now
             <span aria-hidden="true">→</span>
           </button>
         </motion.div>

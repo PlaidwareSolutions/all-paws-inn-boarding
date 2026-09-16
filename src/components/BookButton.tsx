@@ -3,7 +3,7 @@ import { useBooking } from '../context/BookingContext'
 
 /** The one highlighted call-to-action, used wherever booking is offered. */
 export default function BookButton({
-  label = 'Book their stay',
+  label = 'Book now',
   size = 'md',
   tone = 'flame',
   className = '',

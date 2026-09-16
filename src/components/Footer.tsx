@@ -1,5 +1,5 @@
-import { Instagram } from 'lucide-react'
 import { footer, hoursSummary } from '../data'
+import SocialLinks from './SocialLinks'
 import logo from '../images/all-paws-logo.png'
 
 const mapQuery = encodeURIComponent(footer.location)
@@ -12,9 +12,11 @@ export default function Footer() {
       {/* mark · the house · hours · where to find us — edge to edge */}
       <div className="border-y border-ink/12 bg-bone">
         <div className="gutter grid grid-cols-1 gap-8 py-10 md:grid-cols-12 md:py-12">
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <a href="/" className="inline-block">
-              <img src={logo} alt="All Paws Inn" className="h-16 w-auto md:h-20" />
+              {/* grows with the column, which is ~152px wide at md and ~307px at 1440 —
+                  each step stays inside it so the mark never spills into the address */}
+              <img src={logo} alt="All Paws Inn" className="h-28 w-auto md:h-28 lg:h-40 xl:h-52" />
             </a>
           </div>
 
@@ -47,15 +49,7 @@ export default function Footer() {
               </a>
             </p>
 
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`All Paws Inn on Instagram — ${footer.instagram}`}
-              className="mt-4 grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-ink transition-colors duration-300 hover:border-flame hover:bg-flame hover:text-bone"
-            >
-              <Instagram size={16} />
-            </a>
+            <SocialLinks className="mt-4" />
           </div>
 
           <div className="md:col-span-3">
@@ -79,7 +73,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <iframe
               src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
               title="All Paws Inn location"
@@ -90,14 +84,14 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* pb clears the sticky mobile "Book their stay" bar, which otherwise sits on this line. */}
+      {/* pb clears the sticky mobile "Book now" bar, which otherwise sits on this line. */}
       <div className="gutter flex flex-col gap-2 pb-24 pt-4 label !tracking-[0.14em] text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:!tracking-[0.26em] lg:pb-4">
         <span className="whitespace-nowrap">© {year} All Paws Inn</span>
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="whitespace-nowrap">Houston</span>
-          <span aria-hidden="true" className="text-flame">·</span>
+          <span aria-hidden="true" className="text-teal">·</span>
           <span className="whitespace-nowrap">Clear Lake</span>
-          <span aria-hidden="true" className="text-flame">·</span>
+          <span aria-hidden="true" className="text-teal">·</span>
           <span className="whitespace-nowrap">Space Center Houston</span>
         </span>
       </div>
