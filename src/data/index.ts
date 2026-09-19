@@ -197,12 +197,12 @@ export const team: TeamMember[] = [
   {
     name: 'David Little',
     bio: 'Twenty-plus years in pet hospitality across the United States, from boarding houses to grooming rooms. Runs the floor, the suites and the overnight rota.',
-    photo: P('1757620765404-a1ee66df5e27'),
+    photo: P('1780733062101-3831bb673f22'),
   },
   {
     name: 'Andrea Little',
     bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, grooming appointments and every guest’s daily routine.',
-    photo: P('1534180477871-5d6cc81f3920'),
+    photo: P('1545947313-93c756069e69'),
   },
 ]
 
