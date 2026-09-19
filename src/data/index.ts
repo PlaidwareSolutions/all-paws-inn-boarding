@@ -32,14 +32,14 @@ export const story = {
   ],
   pull: '“We have looked after pets all over the country. Clear Lake is where we wanted to put down roots.”',
   signature: 'David & Andrea Little',
-  image: U('1573865526739-10659fec78a5', 1500),
-  imageAlt: 'A relaxed ginger cat stretched out, half asleep',
+  image: U('1778100030992-42ca7ed2592b', 1500),
+  imageAlt: 'A tabby cat curled up asleep on a plaid blanket',
 }
 
 /* ── Who's staying — real photographs rather than glyphs, in the booking flow ── */
 export const petPhotos: Record<'DOGS' | 'CATS' | 'OTHER', string> = {
-  DOGS: U('1552053831-71594a27632d', 400, 70),
-  CATS: U('1573865526739-10659fec78a5', 400, 70),
+  DOGS: U('1626211596179-d1fe8beaf75c', 400, 70),
+  CATS: U('1753415189607-94b83f18bfcb', 400, 70),
   OTHER: U('1585110396000-c9ffd4e4b308', 400, 70),
 }
 
@@ -53,9 +53,9 @@ export const hero = {
 export const heroImages = [
   U('1587300003388-59208cc962cb', 1900, 80),
   U('1552053831-71594a27632d', 1900, 80),
-  U('1518155317743-a8ff43ea6a5f', 1900, 80),
+  U('1763718171036-79437fcc57fd', 1900, 80),
   U('1548199973-03cce0bbc87b', 1900, 80),
-  U('1514888286974-6c03e2ca1dba', 1900, 80),
+  U('1548802673-380ab8ebc7b7', 1900, 80),
 ]
 
 /* ── Accommodations — editorial bands ── */
@@ -76,7 +76,7 @@ export const suites: Suite[] = [
     price: 30,
     blurb: 'A cozy, comfortable condo for the ones who like their world close and familiar.',
     amenities: ['Comfortable bedding', 'Two walks a day', 'Evening wind-down', 'Climate control'],
-    image: U('1561037404-61cd46aa615b', 1500),
+    image: U('1769117320704-b4d7d21ada85', 1500),
   },
   {
     id: 'standard',
@@ -84,7 +84,7 @@ export const suites: Suite[] = [
     price: 55,
     blurb: 'More room, more window, more play. The one most parents pick, by a mile.',
     amenities: ['Plush bed', 'Three walks + a play session', 'Daily enrichment session', 'Climate control'],
-    image: U('1552053831-71594a27632d', 1500),
+    image: U('1773280222094-4c24fc89ea90', 1500),
     loved: true,
   },
   {
@@ -93,7 +93,7 @@ export const suites: Suite[] = [
     price: 75,
     blurb: 'A private wing, a carer who is theirs alone, and a day shaped entirely around them.',
     amenities: ['Private suite + patio', 'Dedicated 1:1 carer', 'Unlimited play + pool', 'Updates on demand'],
-    image: U('1543466835-00a7907e9de1', 1500),
+    image: U('1587402092301-725e37c70fd8', 1500),
   },
   {
     id: 'premium',
@@ -126,8 +126,8 @@ export const services: Service[] = [
       'A nightly report card, with photographs',
     ],
     from: 'From $30 a night',
-    image: U('1450778869180-41d0601e046e', 1400),
-    imageAlt: 'A dog asleep on a plush bed in a bright suite',
+    image: U('1598397678815-c5dc869035b8', 1400),
+    imageAlt: 'A dog asleep on a plush pet bed',
   },
   {
     title: 'Dog Daycare',
@@ -139,8 +139,8 @@ export const services: Service[] = [
       '$10 off when it is added to a boarding stay',
     ],
     from: 'From $25 a half day',
-    image: U('1442605527737-ed62b867591f', 1400),
-    imageAlt: 'Two dogs mid-play in a sunlit yard',
+    image: U('1775018118638-f5d3a8c60f39', 1400),
+    imageAlt: 'A corgi grinning up at the camera',
   },
   {
     title: 'Cat Boarding',
@@ -152,8 +152,8 @@ export const services: Service[] = [
       'Litter, food and medication kept to their routine',
     ],
     from: 'From $25 a night',
-    image: U('1514888286974-6c03e2ca1dba', 1400),
-    imageAlt: 'A cat perched on a sunlit shelf by a window',
+    image: U('1541781774459-bb2af2f05b55', 1400),
+    imageAlt: 'A cat asleep, tucked under a soft duvet',
   },
   {
     title: 'Cat Daycare',
@@ -165,8 +165,8 @@ export const services: Service[] = [
       'Same-day booking whenever we have the room',
     ],
     from: 'From $15 a half day',
-    image: U('1573865526739-10659fec78a5', 1400),
-    imageAlt: 'A ginger cat stretched out and half asleep',
+    image: U('1753415189607-94b83f18bfcb', 1400),
+    imageAlt: 'A tabby cat peeking out from a cosy blanket',
   },
   {
     title: 'Grooming',
@@ -178,8 +178,8 @@ export const services: Service[] = [
       'Book it alone, or fold it into a boarding stay',
     ],
     from: 'From $15 a nail trim',
-    image: U('1591160690555-5debfba289f0', 1400),
-    imageAlt: 'A freshly groomed dog being towel-dried',
+    image: U('1598875706250-21faaf804361', 1400),
+    imageAlt: 'A freshly groomed golden retriever, bright and happy',
   },
 ]
 
