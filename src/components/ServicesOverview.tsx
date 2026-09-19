@@ -41,7 +41,7 @@ export default function ServicesOverview() {
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05]"
+                  className="h-full w-full object-cover object-[50%_30%] transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05]"
                 />
               </div>
 

@@ -53,7 +53,7 @@ export default function AboutOverview() {
                   src={c.image}
                   alt={c.alt}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05]"
+                  className="h-full w-full object-cover object-[50%_30%] transition-transform duration-[900ms] ease-premium group-hover:scale-[1.05]"
                 />
               </div>
               <div className="flex items-start justify-between gap-4 p-7">

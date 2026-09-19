@@ -39,7 +39,7 @@ export const story = {
 /* ── Who's staying — real photographs rather than glyphs, in the booking flow ── */
 export const petPhotos: Record<'DOGS' | 'CATS' | 'OTHER', string> = {
   DOGS: U('1626211596179-d1fe8beaf75c', 400, 70),
-  CATS: U('1753415189607-94b83f18bfcb', 400, 70),
+  CATS: U('1597838816882-4435b1977fbe', 400, 70),
   OTHER: U('1585110396000-c9ffd4e4b308', 400, 70),
 }
 
@@ -101,7 +101,7 @@ export const suites: Suite[] = [
     price: 60,
     blurb: 'Extra room and garden views, with a full day of play built in.',
     amenities: ['King memory-foam bed', 'Garden-view suite', 'Extra play session', 'Bedtime lights-dim'],
-    image: U('1450778869180-41d0601e046e', 1500),
+    image: U('1597633425046-08f5110420b5', 1500),
   },
 ]
 
@@ -165,8 +165,8 @@ export const services: Service[] = [
       'Same-day booking whenever we have the room',
     ],
     from: 'From $15 a half day',
-    image: U('1753415189607-94b83f18bfcb', 1400),
-    imageAlt: 'A tabby cat peeking out from a cosy blanket',
+    image: U('1637069810813-3aea5273dc7e', 1400),
+    imageAlt: 'A ginger and white cat sitting against a bright background',
   },
   {
     title: 'Grooming',

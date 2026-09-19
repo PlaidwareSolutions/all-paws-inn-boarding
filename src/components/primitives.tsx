@@ -124,7 +124,7 @@ export function ClipImage({
           transition: 'clip-path 1.05s cubic-bezier(.16,1,.3,1), transform 1.4s cubic-bezier(.16,1,.3,1)',
           transform: shown ? 'scale(1)' : 'scale(1.12)',
         }}
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`h-full w-full object-cover object-[50%_30%] ${imgClassName}`}
       />
     </div>
   )
