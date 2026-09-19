@@ -55,9 +55,11 @@ export default function Team() {
               </div>
               <figcaption className="mt-5">
                 <span className="block font-serif text-[1.4rem] text-ink">{m.name}</span>
-                <span className="mt-1 block font-sans text-[0.72rem] font-bold uppercase tracking-[0.14em] text-teal">
-                  {m.role}
-                </span>
+                {m.role && (
+                  <span className="mt-1 block font-sans text-[0.72rem] font-bold uppercase tracking-[0.14em] text-teal">
+                    {m.role}
+                  </span>
+                )}
                 <p className="mt-3 font-sans text-[0.94rem] leading-[1.7] text-ink-70">{m.bio}</p>
               </figcaption>
             </motion.figure>

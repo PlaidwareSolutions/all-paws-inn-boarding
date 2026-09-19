@@ -5,6 +5,12 @@
 const U = (id: string, w = 1600, q = 80) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`
 
+/** Team portraits — 4:5 and face-aware, to match the card frame and keep heads in shot. */
+const P = (id: string, w = 600) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=faces&w=${w}&h=${Math.round(
+    w * 1.25,
+  )}&q=80`
+
 export const EASE = [0.16, 1, 0.3, 1] as const
 
 export const brand = {
@@ -25,7 +31,7 @@ export const story = {
     'All of that experience now sits on one street in Clear Lake, Houston. Our staff bring 20+ years of hands-on animal care between them, and boarding is not a sideline here — it is the only thing we do, and we intend to do it better than anyone in the business.',
   ],
   pull: '“We have looked after pets all over the country. Clear Lake is where we wanted to put down roots.”',
-  signature: 'David & Andrea Little — Founders',
+  signature: 'David & Andrea Little',
   image: U('1573865526739-10659fec78a5', 1500),
   imageAlt: 'A relaxed ginger cat stretched out, half asleep',
 }
@@ -180,7 +186,8 @@ export const services: Service[] = [
 /* ── Team ── */
 export interface TeamMember {
   name: string
-  role: string
+  /** Job title, when they have one on the card. */
+  role?: string
   bio: string
   /** A real photograph of that person — until we have one, the card shows their initials. */
   photo?: string
@@ -189,13 +196,13 @@ export interface TeamMember {
 export const team: TeamMember[] = [
   {
     name: 'David Little',
-    role: 'Co-Founder',
     bio: 'Twenty-plus years in pet hospitality across the United States, from boarding houses to grooming rooms. Runs the floor, the suites and the overnight rota.',
+    photo: P('1757620765404-a1ee66df5e27'),
   },
   {
     name: 'Andrea Little',
-    role: 'Co-Founder',
     bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, grooming appointments and every guest’s daily routine.',
+    photo: P('1534180477871-5d6cc81f3920'),
   },
 ]
 
