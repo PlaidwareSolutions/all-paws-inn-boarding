@@ -3,10 +3,8 @@ import Navbar from './Navbar'
 import PawsBackground from './PawsBackground'
 import ScrollProgress from './ScrollProgress'
 import Footer from './Footer'
-import StickyBookingCTA from './StickyBookingCTA'
-import BookingDrawer from './BookingDrawer'
 
-/** The chrome every page carries: header, footer and the booking flow. */
+/** The chrome every page carries: header and footer. */
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
@@ -19,8 +17,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <Footer />
 
-      <StickyBookingCTA />
-      <BookingDrawer />
     </>
   )
 }

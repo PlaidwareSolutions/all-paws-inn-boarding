@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { pricingCategories, pricingNote, ratePage, EASE } from '../data'
+import { pricingCategories, pricingNotes, ratePage, fromPrice, EASE } from '../data'
 import { Words } from './primitives'
 import SectionTag from './SectionTag'
 
 export default function PricingOverview() {
   return (
-    <section aria-labelledby="rates-h" className="bg-paper py-20 md:py-28">
+    <section aria-labelledby="rates-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
       <div className="gutter">
         <SectionTag name="The rate card" className="mb-8" />
 
@@ -28,17 +28,19 @@ export default function PricingOverview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10% 0px' }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.07, ease: EASE }}
-              className="group flex flex-col justify-between rounded-3xl border border-ink/15 bg-bone p-7 shadow-[0_20px_50px_-32px_rgba(27,22,19,0.4)] transition-colors duration-500 hover:border-teal/60"
+              className="group relative z-10 flex flex-col justify-between rounded-3xl border border-ink/15 bg-bone p-7 shadow-[0_20px_50px_-32px_rgba(27,22,19,0.4)] transition-colors duration-500 hover:border-teal/60"
             >
               <div>
-                <h2 className="font-serif text-[clamp(1.4rem,2.4vw,1.85rem)] leading-tight text-ink transition-colors duration-300 group-hover:text-teal">
+                <h2 className="d-3 font-serif text-ink transition-colors duration-300 group-hover:text-teal">
                   {c.title}
                 </h2>
                 <p className="mt-3 font-sans text-[0.95rem] text-ink-70">
-                  {c.items.length} {c.items.length === 1 ? 'rate' : 'rates'}, from{' '}
-                  <span className="font-bold text-ink">
-                    {c.items.reduce((lo, it) => (it.price.length <= lo.length ? it.price : lo), c.items[0].price)}
-                  </span>
+                  {c.items.length} {c.items.length === 1 ? 'rate' : 'rates'}
+                  {fromPrice(c.items) && (
+                    <>
+                      , from <span className="font-bold text-ink">{fromPrice(c.items)}</span>
+                    </>
+                  )}
                 </p>
               </div>
               <span className="mt-6 flex items-center gap-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink">
@@ -49,7 +51,13 @@ export default function PricingOverview() {
           ))}
         </div>
 
-        <p className="mt-10 font-sans text-[0.88rem] italic text-ink/68">*{pricingNote}</p>
+        <ul className="mt-10 space-y-1.5">
+              {pricingNotes.map(note => (
+                <li key={note} className="font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
+                  *{note}
+                </li>
+              ))}
+            </ul>
       </div>
     </section>
   )

@@ -13,7 +13,7 @@ export default function SectionTag({
   const nameCol = tone === 'dark' ? 'text-teal' : tone === 'flame' ? 'text-bone/88' : 'text-bone/75'
   return (
     <div className={`flex items-center ${className}`}>
-      <span className={`font-sans text-[0.66rem] font-semibold uppercase tracking-[0.3em] ${nameCol}`}>
+      <span className={`font-sans text-[clamp(0.74rem,1vw,0.88rem)] font-semibold uppercase tracking-[0.28em] ${nameCol}`}>
         {name}
       </span>
     </div>

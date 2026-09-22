@@ -5,18 +5,21 @@
 const U = (id: string, w = 1600, q = 80) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`
 
-/** Team portraits — 4:5 and face-aware, to match the card frame and keep heads in shot. */
-const P = (id: string, w = 600) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=faces&w=${w}&h=${Math.round(
-    w * 1.25,
-  )}&q=80`
+/**
+ * Booking is handled by Gingr, not on this site. Every "Book now" opens this.
+ *
+ * TODO: swap for All Paws Inn's own Gingr subdomain — it will look like
+ * https://allpawsinn.gingrapp.com/front_end/login — this is the vendor's
+ * home page standing in until that address is known.
+ */
+export const GINGR_BOOKING_URL = 'https://www.gingrapp.com/'
 
 export const EASE = [0.16, 1, 0.3, 1] as const
 
 export const brand = {
   name: 'All Paws Inn',
   short: 'All Paws Inn',
-  tagline: 'Pet Boarding / Day Care / Grooming',
+  tagline: 'Pet Boarding / Day Care / Bathing',
 }
 
 /** Anchor-safe slug — shared by the nav dropdowns and the section targets they point at. */
@@ -34,13 +37,6 @@ export const story = {
   signature: 'David & Andrea Little',
   image: U('1778100030992-42ca7ed2592b', 1500),
   imageAlt: 'A tabby cat curled up asleep on a plaid blanket',
-}
-
-/* ── Who's staying — real photographs rather than glyphs, in the booking flow ── */
-export const petPhotos: Record<'DOGS' | 'CATS' | 'OTHER', string> = {
-  DOGS: U('1626211596179-d1fe8beaf75c', 400, 70),
-  CATS: U('1597838816882-4435b1977fbe', 400, 70),
-  OTHER: U('1585110396000-c9ffd4e4b308', 400, 70),
 }
 
 /* ── Hero ── */
@@ -73,7 +69,7 @@ export const suites: Suite[] = [
   {
     id: 'condo',
     name: 'Condo',
-    price: 30,
+    price: 37,
     blurb: 'A cozy, comfortable condo for the ones who like their world close and familiar.',
     amenities: ['Comfortable bedding', 'Two walks a day', 'Evening wind-down', 'Climate control'],
     image: U('1769117320704-b4d7d21ada85', 1500),
@@ -88,20 +84,20 @@ export const suites: Suite[] = [
     loved: true,
   },
   {
+    id: 'premium',
+    name: 'Premium',
+    price: 65,
+    blurb: 'Extra room and garden views, with a full day of play built in.',
+    amenities: ['King memory-foam bed', 'Garden-view suite', 'Extra play session', 'Bedtime lights-dim'],
+    image: U('1597633425046-08f5110420b5', 1500),
+  },
+  {
     id: 'luxury',
     name: 'Luxury',
     price: 75,
     blurb: 'A private wing, a carer who is theirs alone, and a day shaped entirely around them.',
     amenities: ['Private suite + patio', 'Dedicated 1:1 carer', 'Unlimited play + pool', 'Updates on demand'],
     image: U('1587402092301-725e37c70fd8', 1500),
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    price: 60,
-    blurb: 'Extra room and garden views, with a full day of play built in.',
-    amenities: ['King memory-foam bed', 'Garden-view suite', 'Extra play session', 'Bedtime lights-dim'],
-    image: U('1597633425046-08f5110420b5', 1500),
   },
 ]
 
@@ -125,7 +121,7 @@ export const services: Service[] = [
       'Medication and special diets handled to your notes',
       'A nightly report card, with photographs',
     ],
-    from: 'From $30 a night',
+    from: 'From $37 a night',
     image: U('1598397678815-c5dc869035b8', 1400),
     imageAlt: 'A dog asleep on a plush pet bed',
   },
@@ -169,15 +165,15 @@ export const services: Service[] = [
     imageAlt: 'A ginger and white cat sitting against a bright background',
   },
   {
-    title: 'Grooming',
-    line: 'Baths, brush-outs and full grooms, timed around their stay.',
+    title: 'Bathing',
+    line: 'Baths, brush-outs and coat care, timed around their stay.',
     points: [
-      'Dogs and cats, small breeds through to large',
-      'A Fear-Free certified groomer, every appointment',
-      'Nail trims and de-shedding treatments',
+      'Dogs small through XL, and cats',
+      'Gentle pre-bath brushing, a bath and a thorough dry',
+      'Extra coat care for heavy shedding or a dense coat',
       'Book it alone, or fold it into a boarding stay',
     ],
-    from: 'From $15 a nail trim',
+    from: 'From $30 a bath',
     image: U('1598875706250-21faaf804361', 1400),
     imageAlt: 'A freshly groomed golden retriever, bright and happy',
   },
@@ -197,12 +193,10 @@ export const team: TeamMember[] = [
   {
     name: 'David Little',
     bio: 'Twenty-plus years in pet hospitality across the United States, from boarding houses to grooming rooms. Runs the floor, the suites and the overnight rota.',
-    photo: P('1780733062101-3831bb673f22'),
   },
   {
     name: 'Andrea Little',
-    bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, grooming appointments and every guest’s daily routine.',
-    photo: P('1545947313-93c756069e69'),
+    bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, bathing appointments and every guest’s daily routine.',
   },
 ]
 
@@ -216,69 +210,109 @@ export interface PriceCategory {
   items: PriceItem[]
 }
 
+/**
+ * The lowest actual rate in a category, for the "from $x" line on the overview cards.
+ *
+ * Surcharges (`+$10`) are not rates you can buy, and some entries carry no number at
+ * all (`Bath rate`), so both are skipped rather than counted as the cheapest option.
+ */
+export const fromPrice = (items: PriceItem[]): string | null => {
+  const amounts = items
+    .filter(i => !i.price.trim().startsWith('+'))
+    .map(i => Number(i.price.replace(/[^0-9.]/g, '')))
+    .filter(n => Number.isFinite(n) && n > 0)
+  return amounts.length ? `$${Math.min(...amounts)}` : null
+}
+
 export const pricingCategories: PriceCategory[] = [
   {
     title: 'Dog Daycare',
     items: [
       { label: 'Full Day', price: '$35' },
-      { label: 'Half Day', price: '$25' },
-      { label: 'Boarding Discount', price: '-$10' },
-      { label: 'Individual Playtime', price: '$15' },
+      { label: 'Additional Dog — Same Household', price: '$30' },
+      { label: 'Half Day — Up to 5 Hours', price: '$25' },
+      { label: 'Additional Dog — Half Day', price: '$20' },
     ],
   },
   {
     title: 'Cat Daycare',
     items: [
-      { label: 'Full Day', price: '$20' },
-      { label: 'Half Day', price: '$15' },
+      { label: 'Full Day', price: '$25' },
+      { label: 'Additional Cat — Full Day', price: '$20' },
+      { label: 'Half Day — Up to 5 Hours', price: '$15' },
+      { label: 'Additional Cat — Half Day', price: '$10' },
     ],
   },
   {
     title: 'Daycare Membership',
     items: [
-      { label: '1 Week (6 days)', price: '$192' },
-      { label: '2 Weeks (12 days)', price: '$360' },
-      { label: '3 Weeks (18 days)', price: '$504' },
-      { label: '4 Weeks (24 days)', price: '$600' },
+      { label: '1 Day a Week', price: '$32' },
+      { label: 'Additional Dog', price: '$28' },
+      { label: '2 Days a Week', price: '$60' },
+      { label: 'Additional Dog', price: '$52' },
+      { label: '3 Days a Week', price: '$84' },
+      { label: 'Additional Dog', price: '$72' },
+      { label: 'Unlimited', price: '$125' },
+      { label: 'Additional Dog — Unlimited', price: '$105' },
     ],
   },
   {
     title: 'Dog Boarding',
     items: [
-      { label: 'Condo', price: '$30' },
-      { label: 'Standard', price: '$55' },
-      { label: 'Luxury', price: '$75' },
-      { label: 'Premium', price: '$60' },
+      { label: 'Condo', price: '$37' },
+      { label: 'Standard Suite', price: '$55' },
+      { label: 'Additional Dog — Shared Standard', price: '$40' },
+      { label: 'Premium Suite', price: '$65' },
+      { label: 'Additional Dog — Shared Premium', price: '$45' },
+      { label: 'Luxury Suite', price: '$75' },
+      { label: 'Additional Dog — Shared Luxury', price: '$50' },
+      { label: 'Holiday / Peak, per pet a night', price: '+$10' },
     ],
   },
   {
     title: 'Cat Boarding',
     items: [
-      { label: 'Condo', price: '$25' },
-      { label: 'Suite', price: '$29' },
+      { label: 'Cat Condo', price: '$25' },
+      { label: 'Additional Cat — Shared Condo', price: '$20' },
+      { label: 'Cat Standard Suite', price: '$30' },
+      { label: 'Additional Cat — Shared Standard', price: '$25' },
+      { label: 'Holiday / Peak, per cat a night', price: '+$10' },
     ],
   },
   {
-    title: 'Dog Grooming',
+    title: 'Bathing',
     items: [
-      { label: 'Bath & Brush', price: '$35' },
-      { label: 'Full Groom — Small', price: '$55' },
-      { label: 'Full Groom — Large', price: '$75' },
-      { label: 'Nail Trim', price: '$15' },
+      { label: 'Small Dog Bath', price: 'From $30' },
+      { label: 'Medium Dog Bath', price: 'From $35' },
+      { label: 'Large Dog Bath', price: 'From $45' },
+      { label: 'XL Dog Bath', price: 'From $55' },
+      { label: 'Cat Bath', price: 'From $40' },
+      { label: 'Extra Coat Care', price: 'From $15' },
     ],
   },
   {
-    title: 'Cat Grooming',
+    title: 'Add-Ons',
     items: [
-      { label: 'Bath & Brush', price: '$40' },
-      { label: 'Full Groom', price: '$65' },
-      { label: 'De-shedding Treatment', price: '$25' },
-      { label: 'Nail Trim', price: '$15' },
+      { label: 'Extra Playtime, per 30 min', price: '$10' },
+      { label: 'Extra Leisure Walk', price: '$10' },
+      { label: 'Photo Update', price: '$5' },
+      { label: 'Premium Treat / Frozen Enrichment', price: '$5' },
+      { label: 'Bedtime Tuck-In / Cuddle Time', price: '$8' },
+      { label: 'Medication Administration', price: 'From $5' },
+      { label: 'Departure Bath', price: 'Bath rate' },
     ],
   },
 ]
 
-export const pricingNote = 'For each additional cat/dog, rooms are discounted — ask for details.'
+/* Printed under every rate list — the conditions the prices above assume. */
+export const pricingNotes = [
+  'Potty walks roughly every two hours through 6pm or pickup. Boarding dogs also get an overnight potty pad.',
+  'Every boarded dog gets two hours of play a day — an hour in the morning, an hour in the evening.',
+  'Additional-pet rates are for compatible pets from the same household. Condos hold one dog and cannot be shared.',
+  'A $10 per pet, per night holiday and peak fee applies on designated high-demand dates.',
+  'Boarded pets are fed to their usual home schedule, on food you bring. A food fee may apply if it runs out.',
+  'Memberships run to a four-week minimum. The Luxury Suite includes a departure bath; extra coat care may still apply.',
+]
 
 /* ── Footer ── */
 export const footer = {
@@ -287,7 +321,7 @@ export const footer = {
   location: '1051 Pineloch Dr. Ste 700, Houston, TX 77062',
   area: 'Clear Lake, Houston',
   phone: '(713) 966-2500',
-  email: 'stay@allpawsinn.com',
+  email: 'info@allpawsinnboarding.com',
   hours: 'Mon – Fri 8am – 6pm · Sat 9am – 5pm · Sun closed',
   instagram: '@allpawsinn',
 }

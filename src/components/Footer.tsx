@@ -14,9 +14,17 @@ export default function Footer() {
         <div className="gutter grid grid-cols-1 gap-8 py-10 md:grid-cols-12 md:py-12">
           <div className="md:col-span-3">
             <a href="/" className="inline-block">
-              {/* grows with the column, which is ~152px wide at md and ~307px at 1440 —
-                  each step stays inside it so the mark never spills into the address */}
-              <img src={logo} alt="All Paws Inn" className="h-28 w-auto md:h-28 lg:h-40 xl:h-52" />
+              {/* Sized independently of the header mark: here the limit is the column, not a
+                  navbar. Each step is the largest that still fits its column width (153px at
+                  md, 270px at xl) and stays under the neighbouring columns, so the mark never
+                  spills into the address and the footer never grows taller. The md step is
+                  smaller than the mobile one on purpose — that is where the 3-of-12 column is
+                  at its narrowest. */}
+              <img
+                src={logo}
+                alt="All Paws Inn"
+                className="h-36 w-auto md:h-28 lg:h-[9.5rem] xl:h-[11.5rem] 2xl:h-[12rem]"
+              />
             </a>
           </div>
 

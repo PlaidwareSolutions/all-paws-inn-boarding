@@ -10,7 +10,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
 
   return (
     <>
-      <section aria-labelledby="svc-h" className="bg-paper py-20 md:py-28">
+      <section aria-labelledby="svc-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
         <div className="gutter">
           <SectionTag name="Services" className="mb-8" />
 
@@ -62,7 +62,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
               <li key={o.title}>
                 <a
                   href={servicePage(o.title)}
-                  className="group flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
+                  className="group relative z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
                 >
                   <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-teal">
                     {o.title}

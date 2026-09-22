@@ -10,7 +10,7 @@ const crop = ['aspect-[4/3]', 'aspect-[4/3]', 'aspect-[4/3]', 'aspect-[16/9]', '
 /** The Services page — each card opens that service's own page. */
 export default function ServicesOverview() {
   return (
-    <section aria-labelledby="svc-overview-h" className="bg-paper py-20 md:py-28">
+    <section aria-labelledby="svc-overview-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
       <div className="gutter">
         <SectionTag name="Services" className="mb-8" />
 
@@ -19,7 +19,7 @@ export default function ServicesOverview() {
             <Words lines={['Five ways', 'to stay.']} italicLine={1} accentLine={1} />
           </h1>
           <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
-            Boarding, daycare and grooming for dogs and cats — all of it run by the same
+            Boarding, daycare and bathing for dogs and cats — all of it run by the same
             people, to the same standard.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function ServicesOverview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10% 0px' }}
               transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: EASE }}
-              className={`group overflow-hidden rounded-3xl border border-ink/15 bg-bone shadow-[0_20px_50px_-30px_rgba(27,22,19,0.4)] transition-colors duration-500 hover:border-teal/60 ${span[i]}`}
+              className={`group relative z-10 overflow-hidden rounded-3xl border border-ink/15 bg-bone shadow-[0_20px_50px_-30px_rgba(27,22,19,0.4)] transition-colors duration-500 hover:border-teal/60 ${span[i]}`}
             >
               <div className={`w-full overflow-hidden ${crop[i]}`}>
                 <img
@@ -47,9 +47,9 @@ export default function ServicesOverview() {
 
               <div className="flex items-start gap-4 p-6 md:p-7">
                 <div>
-                  <h3 className="font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-tight text-ink transition-colors duration-300 group-hover:text-teal">
+                  <h2 className="d-3 font-serif text-ink transition-colors duration-300 group-hover:text-teal">
                     {s.title}
-                  </h3>
+                  </h2>
                   <p className="mt-2 font-sans text-[0.97rem] leading-[1.65] text-ink-70">{s.line}</p>
                 </div>
               </div>

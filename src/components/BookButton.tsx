@@ -1,7 +1,10 @@
 import { ArrowRight } from 'lucide-react'
-import { useBooking } from '../context/BookingContext'
+import { GINGR_BOOKING_URL } from '../data'
 
-/** The one highlighted call-to-action, used wherever booking is offered. */
+/**
+ * The one call-to-action on the site. Booking lives in Gingr, so this is a link
+ * out rather than a button that opens anything here.
+ */
 export default function BookButton({
   label = 'Book now',
   size = 'md',
@@ -13,8 +16,6 @@ export default function BookButton({
   tone?: 'flame' | 'ink' | 'bone'
   className?: string
 }) {
-  const { openBooking } = useBooking()
-
   const pad =
     size === 'lg'
       ? 'px-9 py-4 text-[0.76rem]'
@@ -30,13 +31,14 @@ export default function BookButton({
       : 'bg-flame text-bone hover:bg-ember'
 
   return (
-    <button
-      type="button"
-      onClick={() => openBooking()}
+    <a
+      href={GINGR_BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`group inline-flex items-center gap-2.5 rounded-full font-sans font-semibold uppercase tracking-[0.18em] shadow-[0_14px_34px_-14px_rgba(244,85,29,0.55)] transition-colors duration-400 ${skin} ${pad} ${className}`}
     >
       {label}
       <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-    </button>
+    </a>
   )
 }

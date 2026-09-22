@@ -63,7 +63,7 @@ export default function GuidelinesPage() {
               id={slug(s.title)}
               className="scroll-mt-10 border-t border-ink/20 py-10 first:border-t-0 first:pt-0"
             >
-              <h2 className="font-serif text-[clamp(1.6rem,3vw,2.3rem)] leading-tight text-ink">
+              <h2 className="d-3 font-serif text-ink">
                 {s.title}
               </h2>
               <div className="mt-5 space-y-4">

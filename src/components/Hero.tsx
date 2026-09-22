@@ -10,7 +10,6 @@ export default function Hero() {
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.16])
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '16%'])
   const wordX = useTransform(scrollYProgress, [0, 1], ['0%', '-14%'])
-  const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   const px = useMotionValue(0)
   const py = useMotionValue(0)
@@ -31,7 +30,7 @@ export default function Hero() {
       ref={ref}
       id="top"
       aria-label="ALL PAWS INN"
-      className="relative min-h-[100svh] overflow-hidden bg-paper"
+      className="relative min-h-[calc(100svh-var(--header-h,0px))] overflow-hidden bg-paper"
     >
       {/* full-bleed photo montage */}
       <motion.div style={{ scale: imgScale, y: imgY, x: sx }} className="absolute inset-0">
@@ -55,19 +54,17 @@ export default function Hero() {
 
       {/* the word */}
       <motion.div
-        style={{ x: wordX, opacity: fade }}
-        className="absolute inset-x-0 bottom-24 z-10 pl-[clamp(1.25rem,4vw,4rem)] md:bottom-[16vh] md:pl-16"
+        style={{ x: wordX }}
+        className="absolute inset-x-0 bottom-12 z-10 pl-[clamp(1.25rem,4vw,4rem)] pr-5 md:bottom-[9vh] md:pl-16 md:pr-0"
       >
         <div className="overflow-hidden">
           <motion.h1
             initial={{ y: '108%' }}
             animate={{ y: 0 }}
             transition={{ duration: 1.15, delay: 0.4, ease: EASE }}
-            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(3.4rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-teal [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
+            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(2.7rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-teal [text-shadow:0_2px_22px_rgba(27,22,19,0.14)]"
           >
-            Stay and
-            <br />
-            Play!
+            Stay and Play!
           </motion.h1>
         </div>
         <motion.p
@@ -103,24 +100,6 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* rotating stamp at the seam */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.3, duration: 0.8, ease: EASE }}
-        style={{ opacity: fade }}
-        className="absolute right-6 top-[22%] z-20 h-24 w-24 md:left-[calc(47%-3.5rem)] md:right-auto md:top-[10%] md:h-28 md:w-28"
-      >
-        <svg viewBox="0 0 100 100" className="spin-slow h-full w-full">
-          <path id="hc" d="M50,50 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0" fill="none" />
-          <text className="fill-bone font-sans text-[10px] uppercase tracking-[0.18em] md:fill-ink">
-            <textPath href="#hc">they deserve this · they deserve this · </textPath>
-          </text>
-        </svg>
-        <span className="absolute inset-0 m-auto grid h-8 w-8 place-items-center rounded-full bg-teal text-[0.7rem] text-bone">
-          ✦
-        </span>
-      </motion.div>
 
     </section>
   )

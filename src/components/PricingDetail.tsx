@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { pricingCategories, pricingNote, ratePage, type PriceCategory } from '../data'
+import { pricingCategories, pricingNotes, ratePage, type PriceCategory } from '../data'
 import { Words, Reveal } from './primitives'
 import SectionTag from './SectionTag'
 import BookButton from './BookButton'
@@ -10,7 +10,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
 
   return (
     <>
-      <section aria-labelledby="rate-h" className="bg-paper py-20 md:py-28">
+      <section aria-labelledby="rate-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
         <div className="gutter">
           <SectionTag name="The rate card" className="mb-8" />
 
@@ -35,7 +35,13 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                 </li>
               ))}
             </ul>
-            <p className="mt-8 font-sans text-[0.88rem] italic text-ink/68">*{pricingNote}</p>
+            <ul className="mt-8 space-y-1.5">
+              {pricingNotes.map(note => (
+                <li key={note} className="font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
+                  *{note}
+                </li>
+              ))}
+            </ul>
             <BookButton label="Reserve a room" size="lg" className="mt-10" />
           </Reveal>
         </div>
@@ -51,7 +57,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
               <li key={o.title}>
                 <a
                   href={ratePage(o.title)}
-                  className="group flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
+                  className="group relative z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
                 >
                   <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-teal">
                     {o.title}

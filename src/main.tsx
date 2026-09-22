@@ -2,12 +2,10 @@ import { StrictMode, type ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MotionConfig } from 'framer-motion'
 import './index.css'
-import { BookingProvider } from './context/BookingContext'
 import Layout from './components/Layout'
 
 import { services, pricingCategories, slug } from './data'
 import Hero from './components/Hero'
-import QuickBooking from './components/QuickBooking'
 import ServicesOverview from './components/ServicesOverview'
 import Story from './components/Story'
 import Team from './components/Team'
@@ -22,12 +20,7 @@ import ContactDetails from './components/ContactDetails'
 const pages: Record<string, ReactNode> = {
   /* Home is the landing view and the front desk, nothing else — every other subject has
      its own page. */
-  home: (
-    <>
-      <Hero />
-      <QuickBooking />
-    </>
-  ),
+  home: <Hero />,
   about: <AboutOverview />,
   'about/our-story': <Story />,
   'about/team': <Team />,
@@ -52,9 +45,7 @@ if (!page) throw new Error(`Unknown page "${name}" — check data-page on #root.
 createRoot(root).render(
   <StrictMode>
     <MotionConfig reducedMotion="user">
-      <BookingProvider>
-        <Layout>{page}</Layout>
-      </BookingProvider>
+      <Layout>{page}</Layout>
     </MotionConfig>
   </StrictMode>,
 )

@@ -9,14 +9,14 @@ const mapQuery = encodeURIComponent(footer.location)
 /** The Contact page body — how to reach the house, and how to find it. */
 export default function ContactDetails() {
   return (
-    <section id="contact-details" aria-labelledby="contact-h" className="bg-paper py-24 md:py-32">
+    <section id="contact-details" aria-labelledby="contact-h" className="bg-paper pt-10 pb-24 md:pt-14 md:pb-32">
       <div className="gutter">
         <SectionTag name="Contact" className="mb-8" />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-          <h2 id="contact-h" className="d-1 font-serif text-ink md:col-span-7">
+          <h1 id="contact-h" className="d-1 font-serif text-ink md:col-span-7">
             <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} />
-          </h2>
+          </h1>
           <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
             We are five minutes from Space Center Houston, in the heart of Clear Lake.
             Drop in for a tour — no appointment needed.
@@ -88,7 +88,7 @@ export default function ContactDetails() {
             </Reveal>
 
             <Reveal delay={0.08} className="mt-10">
-              <h3 className="font-serif text-[1.5rem] text-ink">Hours of Operation</h3>
+              <h2 className="font-serif text-[1.5rem] text-ink">Hours of Operation</h2>
               <dl className="mt-4 max-w-sm">
                 {openingHours.map(([day, time]) => (
                   <div key={day} className="flex items-baseline justify-between gap-6 border-b border-ink/12 py-2">

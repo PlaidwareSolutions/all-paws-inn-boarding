@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, MapPin, Phone, Clock } from 'lucide-react'
-import { useBooking } from '../context/BookingContext'
-import { navLinks, EASE, footer, type NavLink } from '../data'
+import { navLinks, EASE, footer, type NavLink, GINGR_BOOKING_URL } from '../data'
 import logo from '../images/all-paws-logo.png'
 
 /* "/about/team/", "/about/team", "/about/team/index.html" all mean the same page. */
@@ -22,7 +21,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   /* which parent's sub-list is open in the mobile menu */
   const [openSection, setOpenSection] = useState<string | null>(null)
-  const { openBooking } = useBooking()
 
   useEffect(() => {
     if (!open) setOpenSection(null)
@@ -42,10 +40,26 @@ export default function Navbar() {
     }
   }, [open])
 
+  /* The header is sticky, so it eats real layout height above the hero. Publishing that
+     height lets the hero size itself to the rest of the viewport instead of guessing.
+     Measured rather than hard-coded, so changing the logo size cannot desync it. */
+  const headerRef = useRef<HTMLElement>(null)
+  useLayoutEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+    const publish = () =>
+      document.documentElement.style.setProperty('--header-h', `${el.offsetHeight}px`)
+    publish()
+    const ro = new ResizeObserver(publish)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
   return (
     <>
       {/* Logo on its own row up top, the link row stacked directly beneath it. */}
       <motion.header
+        ref={headerRef}
         initial={{ y: -28, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: EASE }}
@@ -59,9 +73,13 @@ export default function Navbar() {
           <a
             href="/"
             aria-label="ALL PAWS INN — home"
-            className="flex shrink-0 items-center py-3 pl-[clamp(1.25rem,4vw,4rem)] pr-6 md:py-4"
+            className="flex shrink-0 items-center py-1 pl-[clamp(1.25rem,4vw,4rem)] pr-6 md:py-2 lg:py-1"
           >
-            <img src={logo} alt="All Paws Inn" className="h-16 w-auto md:h-24 lg:h-[7rem]" />
+            {/* The bar can only be as short as this mark is tall, so the height here is
+                chosen against the bar: big enough to read as the largest thing in the
+                header, small enough that the header stays the height it always was.
+                Keep in sync with the footer wordmark in Footer.tsx. */}
+            <img src={logo} alt="All Paws Inn" className="h-20 w-auto md:h-28 lg:h-[9.5rem]" />
           </a>
 
           <div className="ml-auto flex flex-1 flex-col justify-center lg:justify-start">
@@ -85,13 +103,15 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              <button
-                onClick={() => openBooking()}
+              <a
+                href={GINGR_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group hidden items-center gap-2 rounded-full bg-flame px-6 py-3 font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bone shadow-[0_12px_30px_-12px_rgba(244,85,29,0.8)] transition-colors duration-400 hover:bg-ember sm:flex"
               >
                 Book now
                 <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
+              </a>
 
               <button
                 onClick={() => setOpen(true)}
@@ -197,18 +217,18 @@ export default function Navbar() {
                 )
               })}
 
-              <motion.button
+              <motion.a
+                href={GINGR_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 26 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + navLinks.length * 0.06, duration: 0.55, ease: EASE }}
-                onClick={() => {
-                  setOpen(false)
-                  openBooking()
-                }}
-                className="w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-teal"
+                onClick={() => setOpen(false)}
+                className="block w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-teal"
               >
-                Book →
-              </motion.button>
+                Book now →
+              </motion.a>
             </nav>
 
             <div className="flex flex-col gap-4 px-6 py-8 font-sans text-[0.66rem] uppercase tracking-[0.22em] text-bone/65">

@@ -14,11 +14,11 @@ export default function Story() {
         />
 
         {/* copy */}
-        <div className="flex flex-col justify-center gutter py-20 md:py-28">
+        <div className="flex flex-col justify-center gutter pt-10 pb-20 md:pt-14 md:pb-28">
           <SectionTag name="Our story" className="mb-8" />
-          <h2 id="story-h" className="d-2 font-serif text-ink">
+          <h1 id="story-h" className="d-2 font-serif text-ink">
             <Words lines={story.heading} italicLine={1} accentLine={1} />
-          </h2>
+          </h1>
 
           <div className="mt-8 max-w-md space-y-5">
             {story.body.map((p, i) => (

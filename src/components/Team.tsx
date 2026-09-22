@@ -5,12 +5,12 @@ import SectionTag from './SectionTag'
 
 export default function Team() {
   return (
-    <section id="team" aria-labelledby="team-h" className="bg-paper-2 py-24 md:py-32">
+    <section id="team" aria-labelledby="team-h" className="bg-paper-2 pt-10 pb-24 md:pt-14 md:pb-32">
       <div className="gutter">
         <SectionTag name="Who looks after them" className="mb-8" />
-        <h2 id="team-h" className="d-1 max-w-[16ch] font-serif text-ink">
+        <h1 id="team-h" className="d-2 max-w-[16ch] font-serif text-ink">
           <Words lines={['The house,', 'the humans.']} italicLine={1} accentLine={1} />
-        </h2>
+        </h1>
 
         <div className="mt-14 grid max-w-3xl grid-cols-1 gap-8 sm:grid-cols-2 md:mt-20">
           {team.map((m, i) => (

@@ -65,9 +65,10 @@
     line-height: 0.98;
     letter-spacing: -0.03em;
   }
+  /* Card and sub-section titles. */
   .d-3 {
-    font-size: clamp(1.55rem, 3vw, 2.7rem);
-    line-height: 1.05;
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    line-height: 1.15;
     letter-spacing: -0.02em;
   }
   .label {

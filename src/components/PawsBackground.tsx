@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
-import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 
 /* ── Walking trails ───────────────────────────────────────────────────────────
-   Each trail is a path across the viewport. Prints are laid down one at a time as
-   you scroll — alternating left/right of the centre line like a real gait, each one
-   turned to face the way it's going — so it reads as an animal walking through,
-   not a field of floating paws. Coordinates are viewport percentages.          */
+   Each trail is a path across the viewport. Prints alternate left/right of the centre
+   line like a real gait, each one turned to face the way it's going, so the field reads
+   as animals having walked through rather than scattered paws. Static — they do not
+   react to scroll. Coordinates are viewport percentages.                       */
 
 interface Trail {
   from: [number, number]
@@ -96,51 +94,34 @@ function PawIcon({ size }: { size: number }) {
   )
 }
 
-function Step({ print, progress }: { print: Print; progress: MotionValue<number> }) {
-  const { at, gone } = print
-  /* land quickly, hold while the walk continues, then lift behind the animal */
-  const opacity = useTransform(progress, [at - 0.012, at, gone, gone + 0.05], [0, 1, 1, 0])
-  /* a small press as the paw sets down */
-  const scale = useTransform(progress, [at - 0.012, at, at + 0.01], [0.72, 1.06, 1])
-
+function Step({ print }: { print: Print }) {
   return (
-    <motion.div
+    <div
       style={{
         position: 'absolute',
         left: `${print.left}%`,
         top: `${print.top}%`,
-        rotate: print.rot,
-        opacity,
-        scale,
+        rotate: `${print.rot}deg`,
       }}
       className="text-ink"
     >
       <PawIcon size={print.size} />
-    </motion.div>
+    </div>
   )
 }
 
-/** Paw prints that walk across the page as you scroll. Fixed, faint, non-interactive.
+/** A fixed field of paw prints behind the page. Faint, static and non-interactive.
     z-0 keeps them beneath every positioned element (hero, cards, the header), and the
     low-opacity multiply makes them read as an impression in the paper rather than a
     layer sitting on top of the copy. */
 export default function PawsBackground() {
-  const { scrollYProgress } = useScroll()
-  const [reduced, setReduced] = useState(false)
-
-  useEffect(() => {
-    setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
-
-  if (reduced) return null
-
   return (
     <div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-[0.16] mix-blend-multiply"
     >
       {PRINTS.map((p, i) => (
-        <Step key={i} print={p} progress={scrollYProgress} />
+        <Step key={i} print={p} />
       ))}
     </div>
   )
