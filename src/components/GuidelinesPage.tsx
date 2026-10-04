@@ -32,7 +32,7 @@ export default function GuidelinesPage() {
         <h1 className="mt-5 d-1 max-w-[15ch] font-serif text-ink">
           Their health <span className="italic text-teal">and safety</span> first.
         </h1>
-        <p className="mt-7 max-w-2xl font-sans text-[1.05rem] font-semibold leading-[1.75] text-ink-70">
+        <p className="mt-7 lede max-w-2xl text-ink-70">
           {guidelinesIntro}
         </p>
       </div>
@@ -68,7 +68,7 @@ export default function GuidelinesPage() {
               </h2>
               <div className="mt-5 space-y-4">
                 {s.body.map((p, j) => (
-                  <p key={j} className="font-sans text-[1rem] font-medium leading-[1.8] text-ink-70">
+                  <p key={j} className="body text-ink-70">
                     {p}
                   </p>
                 ))}
@@ -82,10 +82,10 @@ export default function GuidelinesPage() {
       <footer className="border-t border-ink/20 bg-paper-2">
         <div className="gutter flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-sans text-[1.02rem] font-bold text-ink">
+            <p className="body font-semibold text-ink">
               Questions about any of this?
             </p>
-            <p className="mt-2 font-sans text-[0.98rem] text-ink-70">
+            <p className="mt-2 body-sm text-ink-70">
               Call{' '}
               <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
                 {footer.phone}

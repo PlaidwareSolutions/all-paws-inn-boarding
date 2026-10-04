@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { pricingCategories, ratePage, type PriceCategory } from '../data'
+import { pricingCategories, ratePage, type PriceCategory, type PriceItem } from '../data'
 import { Words, Reveal } from './primitives'
 import SectionTag from './SectionTag'
 import BookButton from './BookButton'
@@ -8,56 +8,102 @@ import BookButton from './BookButton'
 export default function PricingDetail({ category }: { category: PriceCategory }) {
   const others = pricingCategories.filter(c => c.title !== category.title)
 
+  /* "Additional Dog/Cat — ..." rows always follow the rate they modify in the sheet,
+     so they fold into that row rather than standing beside it as an equal choice. */
+  const rows = category.items.reduce<{ item: PriceItem; modifiers: PriceItem[] }[]>((acc, item) => {
+    if (item.label.startsWith('Additional') && acc.length)
+      acc[acc.length - 1].modifiers.push(item)
+    else acc.push({ item, modifiers: [] })
+    return acc
+  }, [])
+
   return (
     <>
-      <section aria-labelledby="rate-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
+      <section aria-labelledby="rate-h" className="relative z-10 bg-bone pt-10 pb-20 md:pt-14 md:pb-28">
         <div className="gutter">
           <SectionTag name="The rate card" className="mb-8" />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-            <h1 id="rate-h" className="d-2 font-serif text-ink md:col-span-7">
+          <div className="max-w-2xl">
+            <h1 id="rate-h" className="d-2 font-serif text-ink">
               <Words lines={[category.title]} accentLine={0} />
             </h1>
-            <p className="font-sans text-[1.02rem] leading-[1.7] text-ink-70 md:col-span-4 md:col-start-9">
+            <p className="lede mt-4 text-ink-70">
               Every stay includes round-the-clock care and a nightly report card. No booking fees.
             </p>
           </div>
 
-          {/* Rates on the left, the conditions that govern them in the right column rather
-              than stacked underneath — the right half of this page was empty, and the notes
-              read better beside the prices they qualify than as a footnote below them. */}
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
-            <Reveal className="md:col-span-7">
-              <ul className="border-t border-ink/20">
-                {category.items.map(item => (
-                  <li key={item.label} className="flex items-baseline gap-4 border-b border-ink/15 py-5">
-                    <span className="font-sans text-[1.05rem] text-ink-70">{item.label}</span>
-                    <span className="mx-2 flex-1 translate-y-[-0.28em] border-b border-dotted border-ink/30" />
-                    <span className="shrink-0 font-serif text-[clamp(1.3rem,2.4vw,1.8rem)] text-ink">
+          {/* The menu pattern: name, leader, price on one line, with what the rate covers
+              on a second line beneath it. The previous three-column grid left a 388px hole
+              between a short label and its description, and nothing tied the name to its
+              price. The leader does that job, and putting the detail underneath rather
+              than beside makes it read as subordinate without having to fade it away. */}
+          <Reveal className="mt-12">
+            <ul className="border-t border-ink/20">
+              {rows.map(({ item, modifiers }) => (
+                <li key={`${item.label}-${item.price}`} className="border-b border-ink/15 py-6">
+                  <div className="flex items-baseline gap-4">
+                    <span className="body-lg font-medium text-ink">{item.label}</span>
+                    <span
+                      aria-hidden="true"
+                      className="mx-1 flex-1 translate-y-[-0.3em] border-b border-dotted border-ink/30"
+                    />
+                    <span className="shrink-0 font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-none text-teal">
                       {item.price}
                     </span>
+                  </div>
+                  <p className="measure mt-2 body text-ink-70">{item.detail}</p>
+
+                  {/* An "Additional dog" rate is not a product of its own — it modifies the
+                      rate above it, so it is nested and a step quieter throughout. */}
+                  {modifiers.map(mod => (
+                    <div
+                      key={`${mod.label}-${mod.price}`}
+                      className="mt-5 border-l-2 border-ink/15 pl-4 md:pl-5"
+                    >
+                      <div className="flex items-baseline gap-4">
+                        <span className="body font-medium text-ink-70">{mod.label}</span>
+                        <span
+                          aria-hidden="true"
+                          className="mx-1 flex-1 translate-y-[-0.3em] border-b border-dotted border-ink/20"
+                        />
+                        <span className="shrink-0 font-serif text-[1.35rem] leading-none text-teal">
+                          {mod.price}
+                        </span>
+                      </div>
+                      <p className="measure mt-1.5 body-sm text-ink/55">{mod.detail}</p>
+                    </div>
+                  ))}
+                </li>
+              ))}
+            </ul>
+            <BookButton label="Reserve a room" size="lg" className="mt-10" />
+          </Reveal>
+
+          {/* The sheet prints its conditions under each table, so they sit at the foot of
+              the section here too rather than off in a sidebar. */}
+          {category.notes && (
+            <Reveal
+              delay={0.1}
+              className="mt-14 border-t border-ink/20 pt-8"
+            >
+              <h2 className="label text-ink/60">Good to know</h2>
+              <ul
+                className={`mt-5 space-y-3 ${
+                  category.notes.length > 3 ? 'md:columns-2 md:gap-10 md:space-y-0' : 'measure'
+                }`}
+              >
+                {category.notes.map(note => (
+                  <li
+                    key={note}
+                    className="break-inside-avoid body pb-3 text-ink-70"
+                  >
+                    {note}
                   </li>
                 ))}
               </ul>
-              <BookButton label="Reserve a room" size="lg" className="mt-10" />
             </Reveal>
+          )}
 
-            {category.notes && (
-              <Reveal delay={0.1} className="md:col-span-4 md:col-start-9">
-                <h2 className="label text-ink/60">Good to know</h2>
-                <ul className="mt-5 space-y-4 border-t border-ink/20 pt-5">
-                  {category.notes.map(note => (
-                    <li
-                      key={note}
-                      className="font-sans text-[0.92rem] font-medium leading-[1.65] text-ink"
-                    >
-                      {note}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            )}
-          </div>
         </div>
       </section>
 

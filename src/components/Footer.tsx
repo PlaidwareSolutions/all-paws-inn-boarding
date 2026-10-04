@@ -36,7 +36,7 @@ export default function Footer() {
                 href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                 target="_blank"
                 rel="noreferrer"
-                className="ul-draw block font-sans text-[0.92rem] leading-[1.6] text-ink-70"
+                className="ul-draw block body-sm text-ink-70"
               >
                 {footer.street}
                 <br />
@@ -44,13 +44,13 @@ export default function Footer() {
               </a>
             </address>
 
-            <p className="mt-3 font-sans text-[0.92rem] text-ink-70">
+            <p className="mt-3 body-sm text-ink-70">
               T:{' '}
               <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
                 {footer.phone}
               </a>
             </p>
-            <p className="font-sans text-[0.92rem] text-ink-70">
+            <p className="body-sm text-ink-70">
               E:{' '}
               <a href={`mailto:${footer.email}`} className="ul-draw text-ink">
                 {footer.email}
@@ -65,12 +65,12 @@ export default function Footer() {
             <dl className="mt-3">
               {hoursSummary.map(([days, time]) => (
                 <div key={days} className="flex items-baseline justify-between gap-6 py-0.5">
-                  <dt className="font-sans text-[0.92rem] text-ink-70">{days}</dt>
-                  <dd className="font-sans text-[0.92rem] tabular-nums text-ink-70">{time}</dd>
+                  <dt className="body-sm text-ink-70">{days}</dt>
+                  <dd className="body-sm tabular-nums text-ink-70">{time}</dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-2 font-sans text-[0.82rem] italic text-ink/62">
+            <p className="mt-2 body-sm italic text-ink/62">
               Overnight care runs around the clock.
             </p>
             <a

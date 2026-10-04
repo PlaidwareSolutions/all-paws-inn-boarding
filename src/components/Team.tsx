@@ -60,7 +60,7 @@ export default function Team() {
                     {m.role}
                   </span>
                 )}
-                <p className="mt-3 font-sans text-[0.94rem] leading-[1.7] text-ink-70">{m.bio}</p>
+                <p className="mt-3 body text-ink-70">{m.bio}</p>
               </figcaption>
             </motion.figure>
           ))}

@@ -74,7 +74,7 @@ export default function Hero() {
             initial={{ y: '108%' }}
             animate={{ y: 0 }}
             transition={{ duration: 1.15, delay: 0.4, ease: EASE }}
-            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(2.7rem,10vw,9rem)] italic leading-[0.92] tracking-[-0.04em] text-bone [text-shadow:0_4px_30px_rgba(27,22,19,0.55)]"
+            className="whitespace-nowrap pb-[0.12em] pr-[0.12em] font-serif text-[clamp(2.4rem,6.5vw,4.5rem)] italic leading-[0.92] tracking-[-0.04em] text-bone [text-shadow:0_4px_30px_rgba(27,22,19,0.55)]"
           >
             Stay and Play!
           </motion.h1>
@@ -93,7 +93,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1, ease: EASE }}
-          className="mt-4 max-w-lg font-sans text-[1.02rem] leading-[1.7] text-bone/90"
+          className="mt-4 max-w-lg body text-bone/90"
         >
           We offer protected, stress-free boarding tailored to your pet. From a quick
           day-stay to a week-long getaway, we keep your four-legged family member happy,

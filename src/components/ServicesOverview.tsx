@@ -18,7 +18,7 @@ export default function ServicesOverview() {
           <h1 id="svc-overview-h" className="d-1 font-serif text-ink md:col-span-7">
             <Words lines={['Five ways', 'to stay.']} italicLine={1} accentLine={1} />
           </h1>
-          <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
             Boarding, daycare and bathing for dogs and cats — all of it run by the same
             people, to the same standard.
           </p>
@@ -50,7 +50,7 @@ export default function ServicesOverview() {
                   <h2 className="d-3 font-serif text-ink transition-colors duration-300 group-hover:text-teal">
                     {s.title}
                   </h2>
-                  <p className="mt-2 font-sans text-[0.97rem] leading-[1.65] text-ink-70">{s.line}</p>
+                  <p className="mt-2 body text-ink-70">{s.line}</p>
                 </div>
               </div>
             </motion.a>

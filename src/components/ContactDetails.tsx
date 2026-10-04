@@ -17,7 +17,7 @@ export default function ContactDetails() {
           <h1 id="contact-h" className="d-1 font-serif text-ink md:col-span-7">
             <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} />
           </h1>
-          <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
             We are five minutes from Space Center Houston, in the heart of Clear Lake.
             Drop in for a tour — no appointment needed.
           </p>
@@ -35,7 +35,7 @@ export default function ContactDetails() {
                       href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="ul-draw mt-1 block font-sans text-[1.05rem] leading-[1.6] text-ink"
+                      className="ul-draw mt-1 block body text-ink"
                     >
                       {footer.street}
                       <br />
@@ -50,7 +50,7 @@ export default function ContactDetails() {
                     <span className="label block text-ink/55">Phone</span>
                     <a
                       href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
-                      className="ul-draw mt-1 block font-sans text-[1.05rem] text-ink"
+                      className="ul-draw mt-1 block body text-ink"
                     >
                       {footer.phone}
                     </a>
@@ -63,7 +63,7 @@ export default function ContactDetails() {
                     <span className="label block text-ink/55">Email</span>
                     <a
                       href={`mailto:${footer.email}`}
-                      className="ul-draw mt-1 block font-sans text-[1.05rem] text-ink"
+                      className="ul-draw mt-1 block body text-ink"
                     >
                       {footer.email}
                     </a>
@@ -78,7 +78,7 @@ export default function ContactDetails() {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noreferrer"
-                      className="ul-draw mt-1 block font-sans text-[1.05rem] text-ink"
+                      className="ul-draw mt-1 block body text-ink"
                     >
                       {footer.instagram}
                     </a>
@@ -92,12 +92,12 @@ export default function ContactDetails() {
               <dl className="mt-4 max-w-sm">
                 {openingHours.map(([day, time]) => (
                   <div key={day} className="flex items-baseline justify-between gap-6 border-b border-ink/12 py-2">
-                    <dt className="font-sans text-[0.98rem] text-ink-70">{day}</dt>
-                    <dd className="font-sans text-[0.98rem] tabular-nums text-ink-70">{time}</dd>
+                    <dt className="body-sm text-ink-70">{day}</dt>
+                    <dd className="body-sm tabular-nums text-ink-70">{time}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 font-sans text-[0.88rem] italic text-ink/62">
+              <p className="mt-3 body-sm italic text-ink/62">
                 Overnight care runs around the clock.
               </p>
             </Reveal>

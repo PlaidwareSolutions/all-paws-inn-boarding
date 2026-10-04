@@ -118,7 +118,7 @@ export default function PawsBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-[0.16] mix-blend-multiply"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-[0.09] mix-blend-multiply"
     >
       {PRINTS.map((p, i) => (
         <Step key={i} print={p} />

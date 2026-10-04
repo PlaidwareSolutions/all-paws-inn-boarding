@@ -26,7 +26,7 @@ export default function Story() {
                 as="p"
                 key={i}
                 delay={i * 0.06}
-                className="font-sans text-[1.04rem] leading-[1.8] text-ink-70"
+                className="body text-ink-70"
               >
                 {p}
               </Reveal>

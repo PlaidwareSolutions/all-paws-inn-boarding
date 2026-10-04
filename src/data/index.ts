@@ -204,6 +204,8 @@ export const team: TeamMember[] = [
 export interface PriceItem {
   label: string
   price: string
+  /** The pricing sheet's "Detailed Inclusions" for this row — what the rate buys. */
+  detail: string
 }
 export interface PriceCategory {
   title: string
@@ -230,10 +232,30 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Dog Daycare',
     items: [
-      { label: 'Full Day', price: '$35' },
-      { label: 'Additional Dog — Same Household', price: '$30' },
-      { label: 'Half Day — Up to 5 Hours', price: '$25' },
-      { label: 'Additional Dog — Half Day', price: '$20' },
+      {
+        label: 'Full Day',
+        price: '$35',
+        detail:
+          'Supervised play and social time, fresh water, appropriate rest periods, and potty walks or breaks roughly every two hours through 6pm or pickup, whichever comes first.',
+      },
+      {
+        label: 'Additional Dog — Same Household',
+        price: '$30',
+        detail:
+          'The same full-day care for an additional dog from the same household.',
+      },
+      {
+        label: 'Half Day — Up to 5 Hours',
+        price: '$25',
+        detail:
+          'Up to five hours of supervised play, fresh water, rest as needed, and potty walks or breaks roughly every two hours while in our care.',
+      },
+      {
+        label: 'Additional Dog — Half Day',
+        price: '$20',
+        detail:
+          'The same half-day care for an additional dog from the same household.',
+      },
     ],
     notes: [
       'Potty walks and breaks roughly every two hours through 6pm or pickup, whichever comes first.',
@@ -243,10 +265,30 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Cat Daycare',
     items: [
-      { label: 'Full Day', price: '$25' },
-      { label: 'Additional Cat — Full Day', price: '$20' },
-      { label: 'Half Day — Up to 5 Hours', price: '$15' },
-      { label: 'Additional Cat — Half Day', price: '$10' },
+      {
+        label: 'Full Day',
+        price: '$25',
+        detail:
+          'Private, calm daytime care with fresh litter, water, meals as needed, gentle attention and cat-appropriate enrichment.',
+      },
+      {
+        label: 'Additional Cat — Full Day',
+        price: '$20',
+        detail:
+          'Full-day care for an additional same-household cat.',
+      },
+      {
+        label: 'Half Day — Up to 5 Hours',
+        price: '$15',
+        detail:
+          'Up to five hours of private, calm daytime care.',
+      },
+      {
+        label: 'Additional Cat — Half Day',
+        price: '$10',
+        detail:
+          'Half-day care for an additional same-household cat.',
+      },
     ],
     notes: [
       'Private, calm daytime care — cats are never put in group play.',
@@ -256,14 +298,54 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Daycare Membership',
     items: [
-      { label: '1 Day a Week', price: '$32' },
-      { label: 'Additional Dog', price: '$28' },
-      { label: '2 Days a Week', price: '$60' },
-      { label: 'Additional Dog', price: '$52' },
-      { label: '3 Days a Week', price: '$84' },
-      { label: 'Additional Dog', price: '$72' },
-      { label: 'Unlimited', price: '$125' },
-      { label: 'Additional Dog — Unlimited', price: '$105' },
+      {
+        label: '1 Day a Week',
+        price: '$32',
+        detail:
+          'One reserved full daycare day each week.',
+      },
+      {
+        label: 'Additional Dog',
+        price: '$28',
+        detail:
+          'One weekly daycare day for an additional same-household dog.',
+      },
+      {
+        label: '2 Days a Week',
+        price: '$60',
+        detail:
+          'Two reserved full daycare days each week.',
+      },
+      {
+        label: 'Additional Dog',
+        price: '$52',
+        detail:
+          'Two weekly daycare days for an additional same-household dog.',
+      },
+      {
+        label: '3 Days a Week',
+        price: '$84',
+        detail:
+          'Three reserved full daycare days each week.',
+      },
+      {
+        label: 'Additional Dog',
+        price: '$72',
+        detail:
+          'Three weekly daycare days for an additional same-household dog.',
+      },
+      {
+        label: 'Unlimited',
+        price: '$125',
+        detail:
+          'Daycare throughout the regular operating week, subject to reservations, capacity and facility policies.',
+      },
+      {
+        label: 'Additional Dog — Unlimited',
+        price: '$105',
+        detail:
+          'Unlimited-plan pricing for an additional same-household dog.',
+      },
     ],
     notes: [
       'Memberships require a four-week minimum commitment.',
@@ -273,14 +355,54 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Dog Boarding',
     items: [
-      { label: 'Condo', price: '$37' },
-      { label: 'Standard Suite', price: '$55' },
-      { label: 'Additional Dog — Shared Standard', price: '$40' },
-      { label: 'Premium Suite', price: '$65' },
-      { label: 'Additional Dog — Shared Premium', price: '$45' },
-      { label: 'Luxury Suite', price: '$75' },
-      { label: 'Additional Dog — Shared Luxury', price: '$50' },
-      { label: 'Holiday / Peak, per pet a night', price: '+$10' },
+      {
+        label: 'Condo',
+        price: '$37',
+        detail:
+          "An individual accommodation for one dog. Includes meals to your pet's normal schedule using food from home, potty walks roughly every two hours during daytime care through 6pm, an overnight potty pad, and two hours of play a day — an hour in the morning and an hour in the evening.",
+      },
+      {
+        label: 'Standard Suite',
+        price: '$55',
+        detail:
+          'All standard boarding care, plus a cot and blanket.',
+      },
+      {
+        label: 'Additional Dog — Shared Standard',
+        price: '$40',
+        detail:
+          'Same care and amenities for a compatible same-household dog sharing the Standard Suite.',
+      },
+      {
+        label: 'Premium Suite',
+        price: '$65',
+        detail:
+          'All standard boarding care, plus a cot, blanket and mattress.',
+      },
+      {
+        label: 'Additional Dog — Shared Premium',
+        price: '$45',
+        detail:
+          'Same care and amenities for a compatible same-household dog sharing the Premium Suite.',
+      },
+      {
+        label: 'Luxury Suite',
+        price: '$75',
+        detail:
+          'All standard boarding care, plus a cot, blanket, plush pet bed, television and a standard departure bath.',
+      },
+      {
+        label: 'Additional Dog — Shared Luxury',
+        price: '$50',
+        detail:
+          'Same shared-suite care for a compatible same-household dog. Bath and coat-care needs are assessed for each pet individually.',
+      },
+      {
+        label: 'Holiday / Peak, per pet a night',
+        price: '+$10',
+        detail:
+          "Additional boarding rate on designated high-demand dates, including major religious holidays, Spring Break, Memorial Day, Independence Day, Labor Day, Thanksgiving, Christmas and New Year's. Exact peak dates are set by All Paws Inn.",
+      },
     ],
     notes: [
       'Potty walks and breaks roughly every two hours during daytime care through 6pm, plus an overnight potty pad.',
@@ -294,11 +416,36 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Cat Boarding',
     items: [
-      { label: 'Cat Condo', price: '$25' },
-      { label: 'Additional Cat — Shared Condo', price: '$20' },
-      { label: 'Cat Standard Suite', price: '$30' },
-      { label: 'Additional Cat — Shared Standard', price: '$25' },
-      { label: 'Holiday / Peak, per cat a night', price: '+$10' },
+      {
+        label: 'Cat Condo',
+        price: '$25',
+        detail:
+          "Private cat accommodation with fresh litter, water, gentle attention, and meals to your cat's normal schedule using food from home.",
+      },
+      {
+        label: 'Additional Cat — Shared Condo',
+        price: '$20',
+        detail:
+          'For compatible, bonded cats from the same household, sharing where appropriate.',
+      },
+      {
+        label: 'Cat Standard Suite',
+        price: '$30',
+        detail:
+          'A roomier private retreat with fresh litter, water, gentle attention and normal-schedule feeding.',
+      },
+      {
+        label: 'Additional Cat — Shared Standard',
+        price: '$25',
+        detail:
+          'For compatible, bonded same-household cats, sharing where appropriate.',
+      },
+      {
+        label: 'Holiday / Peak, per cat a night',
+        price: '+$10',
+        detail:
+          'Applies per cat, per night on overnight cat boarding during designated peak periods.',
+      },
     ],
     notes: [
       'Additional-cat rates are for compatible, bonded cats from the same household sharing when appropriate.',
@@ -309,12 +456,42 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Bathing',
     items: [
-      { label: 'Small Dog Bath', price: 'From $30' },
-      { label: 'Medium Dog Bath', price: 'From $35' },
-      { label: 'Large Dog Bath', price: 'From $45' },
-      { label: 'XL Dog Bath', price: 'From $55' },
-      { label: 'Cat Bath', price: 'From $40' },
-      { label: 'Extra Coat Care', price: 'From $15' },
+      {
+        label: 'Small Dog Bath',
+        price: 'From $30',
+        detail:
+          'Gentle pre-bath brushing, a bath and a thorough dry.',
+      },
+      {
+        label: 'Medium Dog Bath',
+        price: 'From $35',
+        detail:
+          'Gentle pre-bath brushing, a bath and a thorough dry.',
+      },
+      {
+        label: 'Large Dog Bath',
+        price: 'From $45',
+        detail:
+          'Gentle pre-bath brushing, a bath and a thorough dry.',
+      },
+      {
+        label: 'XL Dog Bath',
+        price: 'From $55',
+        detail:
+          'Gentle pre-bath brushing, a bath and a thorough dry.',
+      },
+      {
+        label: 'Cat Bath',
+        price: 'From $40',
+        detail:
+          'Cat-conscious bathing and drying, with pre-bath brushing where appropriate.',
+      },
+      {
+        label: 'Extra Coat Care',
+        price: 'From $15',
+        detail:
+          'Additional time for excessive shedding, impacted undercoat, unusually dense or heavy coats, or significant tangling.',
+      },
     ],
     notes: [
       'Brushing is included before every bath.',
@@ -325,13 +502,48 @@ export const pricingCategories: PriceCategory[] = [
   {
     title: 'Add-Ons',
     items: [
-      { label: 'Extra Playtime, per 30 min', price: '$10' },
-      { label: 'Extra Leisure Walk', price: '$10' },
-      { label: 'Photo Update', price: '$5' },
-      { label: 'Premium Treat / Frozen Enrichment', price: '$5' },
-      { label: 'Bedtime Tuck-In / Cuddle Time', price: '$8' },
-      { label: 'Medication Administration', price: 'From $5' },
-      { label: 'Departure Bath', price: 'Bath rate' },
+      {
+        label: 'Extra Playtime, per 30 min',
+        price: '$10',
+        detail:
+          'Additional one-on-one play or enrichment, beyond the two hours of daily play included with boarding.',
+      },
+      {
+        label: 'Extra Leisure Walk',
+        price: '$10',
+        detail:
+          'A dedicated individual walk, beyond the routine potty walks and breaks.',
+      },
+      {
+        label: 'Photo Update',
+        price: '$5',
+        detail:
+          "One photo update during your pet's stay.",
+      },
+      {
+        label: 'Premium Treat / Frozen Enrichment',
+        price: '$5',
+        detail:
+          'An approved treat or enrichment item, subject to dietary needs and your authorization.',
+      },
+      {
+        label: 'Bedtime Tuck-In / Cuddle Time',
+        price: '$8',
+        detail:
+          'Extra quiet one-on-one attention before bedtime, for eligible guests.',
+      },
+      {
+        label: 'Medication Administration',
+        price: 'From $5',
+        detail:
+          'Eligible oral or topical medications given at one scheduled medication time. Multiple medications that can safely be given together at that time are covered by the same fee.',
+      },
+      {
+        label: 'Departure Bath',
+        price: 'Bath rate',
+        detail:
+          'A standard bath before pickup. Extra coat care charges may apply where needed.',
+      },
     ],
     notes: [
       'Extra playtime is on top of the two hours of play already included with boarding.',

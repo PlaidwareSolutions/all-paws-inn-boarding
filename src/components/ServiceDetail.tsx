@@ -10,7 +10,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
 
   return (
     <>
-      <section aria-labelledby="svc-h" className="bg-paper pt-10 pb-20 md:pt-14 md:pb-28">
+      <section aria-labelledby="svc-h" className="relative z-10 bg-bone pt-10 pb-20 md:pt-14 md:pb-28">
         <div className="gutter">
           <SectionTag name="Services" className="mb-8" />
 
@@ -21,23 +21,26 @@ export default function ServiceDetail({ service }: { service: Service }) {
               </h1>
               <p className="lede mt-5 max-w-md text-ink-70">{service.line}</p>
 
-              <Reveal delay={0.08}>
-                <ul className="mt-8 border-t border-ink/15">
+              {/* Same surface the rate lists use: an opaque panel so the paw field cannot
+                  sit behind the copy, and a lift off the paper ground. The title and lede
+                  stay on the ground above it, as they do on the rate pages. */}
+              <Reveal delay={0.08} className="mt-8">
+                <ul className="border-t border-ink/15">
                   {service.points.map(p => (
                     <li
                       key={p}
-                      className="flex items-start gap-3 border-b border-ink/15 py-3.5 font-sans text-[0.98rem] leading-[1.6] text-ink-70"
+                      className="flex items-start gap-3 border-b border-ink/15 py-4 body-lg text-ink"
                     >
                       <Check size={16} strokeWidth={2.5} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
                       {p}
                     </li>
                   ))}
                 </ul>
-              </Reveal>
 
-              <Reveal delay={0.14} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <BookButton label={`Book ${service.title}`} />
-                <span className="label text-ink/60">{service.from}</span>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <BookButton label={`Book ${service.title}`} />
+                  <span className="body-lg font-medium text-teal">{service.from}</span>
+                </div>
               </Reveal>
             </div>
 

@@ -31,7 +31,7 @@ export default function AboutOverview() {
           <h1 id="about-h" className="d-1 font-serif text-ink md:col-span-7">
             <Words lines={['The house,', 'and the humans.']} italicLine={1} accentLine={1} />
           </h1>
-          <p className="font-sans text-[1.02rem] leading-[1.8] text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
             One house in Clear Lake, Houston, run by David and Andrea Little — 20+ years of pet
             hospitality, five minutes from Space Center Houston.
           </p>
@@ -61,7 +61,7 @@ export default function AboutOverview() {
                   <h2 className="d-3 font-serif text-ink transition-colors duration-300 group-hover:text-teal">
                     {c.title}
                   </h2>
-                  <p className="mt-2 font-sans text-[0.98rem] leading-[1.65] text-ink-70">{c.line}</p>
+                  <p className="mt-2 body text-ink-70">{c.line}</p>
                 </div>
                 <ArrowRight
                   size={18}

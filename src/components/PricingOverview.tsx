@@ -14,7 +14,7 @@ export default function PricingOverview() {
           <h1 id="rates-h" className="d-1 font-serif text-ink md:col-span-7">
             <Words lines={['The stay', 'they deserve.']} italicLine={1} accentLine={1} />
           </h1>
-          <p className="font-sans text-[1.02rem] leading-[1.7] text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
             Every stay includes round-the-clock care and a nightly report card. No booking fees.
           </p>
         </div>
@@ -34,11 +34,11 @@ export default function PricingOverview() {
                 <h2 className="d-3 font-serif text-ink transition-colors duration-300 group-hover:text-teal">
                   {c.title}
                 </h2>
-                <p className="mt-3 font-sans text-[0.95rem] text-ink-70">
+                <p className="mt-3 body-sm text-ink-70">
                   {c.items.length} {c.items.length === 1 ? 'rate' : 'rates'}
                   {fromPrice(c.items) && (
                     <>
-                      , from <span className="font-bold text-ink">{fromPrice(c.items)}</span>
+                      , from <span className="font-semibold text-teal">{fromPrice(c.items)}</span>
                     </>
                   )}
                 </p>
@@ -51,7 +51,7 @@ export default function PricingOverview() {
           ))}
         </div>
 
-        <p className="mt-10 font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
+        <p className="measure mt-10 body-sm italic text-ink/68">
           *A $10 per pet, per night holiday and peak fee applies to overnight boarding on
           designated high-demand dates. Each rate list carries the conditions for its own
           services.

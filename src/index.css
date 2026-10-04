@@ -50,26 +50,24 @@
 
 @layer utilities {
   /* ── Type: big, tight, editorial ── */
-  .d-mega {
-    font-size: clamp(3.6rem, 18vw, 15.5rem);
-    line-height: 0.84;
-    letter-spacing: -0.04em;
-  }
+  /* Page titles. */
   .d-1 {
-    font-size: clamp(2.9rem, 9.5vw, 9rem);
-    line-height: 0.92;
-    letter-spacing: -0.035em;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem); /* 56px desktop */
+    line-height: 1.02;
+    letter-spacing: -0.02em;
   }
+  /* Child-page titles: services, rates, our story, team. */
   .d-2 {
-    font-size: clamp(2.2rem, 6vw, 4.9rem);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem); /* 40px desktop */
+    line-height: 1.08;
+    letter-spacing: -0.018em;
   }
   /* Card and sub-section titles. */
+  /* Card and sub-section titles. */
   .d-3 {
-    font-size: clamp(1.4rem, 2.4vw, 2rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem); /* 26px desktop */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   .label {
     font-size: clamp(0.68rem, 0.95vw, 0.78rem);
@@ -77,6 +75,32 @@
     text-transform: uppercase;
     font-weight: 600;
     font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── Body copy ──
+     One primary reading size and one for supporting text. This replaced nine
+     near-identical sizes between 14.7px and 16.8px that were all doing the same job,
+     several of them under the ~16px floor where sustained reading starts to tire. */
+  .body {
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.7;
+  }
+  /* One step above body, for content that is the point of its page — the rate rows. */
+  .body-lg {
+    font-size: 1.1875rem; /* 19px */
+    line-height: 1.6;
+  }
+  /* Meta, captions, footer, tabular rows — never primary reading. */
+  .body-sm {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.6;
+  }
+  /* Caps the measure at roughly 70 characters. Expressed in em, not ch: the ch unit
+     is the width of "0", which in DM Sans runs about a third wider than the average
+     lowercase glyph, so 68ch actually measured 91 characters. 36em scales with the
+     element's own font-size and holds the real count steady. */
+  .measure {
+    max-width: 36em;
   }
 
   .lede {
