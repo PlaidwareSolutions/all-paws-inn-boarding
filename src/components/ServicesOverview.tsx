@@ -14,11 +14,11 @@ export default function ServicesOverview() {
       <div className="gutter">
         <SectionTag name="Services" className="mb-8" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-          <h1 id="svc-overview-h" className="d-1 font-serif text-ink md:col-span-7">
-            <Words lines={['Five ways', 'to stay.']} italicLine={1} accentLine={1} />
+        <div>
+          <h1 id="svc-overview-h" className="d-1 font-serif text-ink">
+            <Words lines={['Five ways', 'to stay.']} italicLine={1} accentLine={1} inline />
           </h1>
-          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede measure mt-5 text-ink-70">
             Boarding, daycare and bathing for dogs and cats — all of it run by the same
             people, to the same standard.
           </p>

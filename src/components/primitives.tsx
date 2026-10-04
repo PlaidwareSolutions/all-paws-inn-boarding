@@ -40,12 +40,16 @@ export function Words({
   italicLine,
   accentLine,
   delay = 0,
+  inline = false,
 }: {
   lines: string[]
   className?: string
   italicLine?: number
   accentLine?: number
   delay?: number
+  /** Run the parts on one line, wrapping only if the viewport forces it. Each part keeps
+      its own italic/accent styling and its own reveal, so the device survives. */
+  inline?: boolean
 }) {
   return (
     <motion.span
@@ -56,7 +60,12 @@ export function Words({
       transition={{ staggerChildren: 0.08, delayChildren: delay }}
     >
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em]">
+        <span
+          key={i}
+          className={`overflow-hidden pb-[0.08em] ${
+            inline ? 'inline-block align-bottom' : 'block'
+          } ${inline && i < lines.length - 1 ? 'mr-[0.26em]' : ''}`}
+        >
           <motion.span
             className={`block ${italicLine === i ? 'italic' : ''} ${accentLine === i ? 'text-teal' : ''}`}
             variants={{

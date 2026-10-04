@@ -13,11 +13,11 @@ export default function ContactDetails() {
       <div className="gutter">
         <SectionTag name="Contact" className="mb-8" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-          <h1 id="contact-h" className="d-1 font-serif text-ink md:col-span-7">
-            <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} />
+        <div>
+          <h1 id="contact-h" className="d-1 font-serif text-ink">
+            <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} inline />
           </h1>
-          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede measure mt-5 text-ink-70">
             We are five minutes from Space Center Houston, in the heart of Clear Lake.
             Drop in for a tour — no appointment needed.
           </p>

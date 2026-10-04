@@ -10,11 +10,11 @@ export default function PricingOverview() {
       <div className="gutter">
         <SectionTag name="The rate card" className="mb-8" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-          <h1 id="rates-h" className="d-1 font-serif text-ink md:col-span-7">
-            <Words lines={['The stay', 'they deserve.']} italicLine={1} accentLine={1} />
+        <div>
+          <h1 id="rates-h" className="d-1 font-serif text-ink">
+            <Words lines={['The stay', 'they deserve.']} italicLine={1} accentLine={1} inline />
           </h1>
-          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede measure mt-5 text-ink-70">
             Every stay includes round-the-clock care and a nightly report card. No booking fees.
           </p>
         </div>

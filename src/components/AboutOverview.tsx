@@ -27,11 +27,11 @@ export default function AboutOverview() {
       <div className="gutter">
         <SectionTag name="About us" className="mb-8" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
-          <h1 id="about-h" className="d-1 font-serif text-ink md:col-span-7">
-            <Words lines={['The house,', 'and the humans.']} italicLine={1} accentLine={1} />
+        <div>
+          <h1 id="about-h" className="d-1 font-serif text-ink">
+            <Words lines={['The house,', 'and the humans.']} italicLine={1} accentLine={1} inline />
           </h1>
-          <p className="lede text-ink-70 md:col-span-4 md:col-start-9">
+          <p className="lede measure mt-5 text-ink-70">
             One house in Clear Lake, Houston, run by David and Andrea Little — 20+ years of pet
             hospitality, five minutes from Space Center Houston.
           </p>
