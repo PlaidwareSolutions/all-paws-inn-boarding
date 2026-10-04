@@ -75,7 +75,7 @@ export default function Footer() {
             </p>
             <a
               href="/contact/"
-              className="ul-draw mt-3 inline-block font-sans text-[0.8rem] font-bold text-ink"
+              className="ul-draw mt-3 inline-block font-sans text-[0.88rem] font-medium text-ink"
             >
               Full hours &amp; directions
             </a>
@@ -92,8 +92,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* pb clears the sticky mobile "Book now" bar, which otherwise sits on this line. */}
-      <div className="gutter flex flex-col gap-2 pb-24 pt-4 label !tracking-[0.14em] text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:!tracking-[0.26em] lg:pb-4">
+      <div className="gutter flex flex-col gap-2 pb-6 pt-4 label !tracking-[0.14em] text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:!tracking-[0.26em] lg:pb-4">
         <span className="whitespace-nowrap">© {year} All Paws Inn</span>
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="whitespace-nowrap">Houston</span>

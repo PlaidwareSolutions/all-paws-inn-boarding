@@ -208,6 +208,8 @@ export interface PriceItem {
 export interface PriceCategory {
   title: string
   items: PriceItem[]
+  /** Conditions that apply to THIS category only — printed under its rate list. */
+  notes?: string[]
 }
 
 /**
@@ -233,6 +235,10 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Half Day — Up to 5 Hours', price: '$25' },
       { label: 'Additional Dog — Half Day', price: '$20' },
     ],
+    notes: [
+      'Potty walks and breaks roughly every two hours through 6pm or pickup, whichever comes first.',
+      'Additional-dog rates are for a second dog from the same household.',
+    ],
   },
   {
     title: 'Cat Daycare',
@@ -241,6 +247,10 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Additional Cat — Full Day', price: '$20' },
       { label: 'Half Day — Up to 5 Hours', price: '$15' },
       { label: 'Additional Cat — Half Day', price: '$10' },
+    ],
+    notes: [
+      'Private, calm daytime care — cats are never put in group play.',
+      'Additional-cat rates are for compatible cats from the same household.',
     ],
   },
   {
@@ -255,6 +265,10 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Unlimited', price: '$125' },
       { label: 'Additional Dog — Unlimited', price: '$105' },
     ],
+    notes: [
+      'Memberships require a four-week minimum commitment.',
+      'Days are subject to reservation, capacity and facility policies.',
+    ],
   },
   {
     title: 'Dog Boarding',
@@ -268,6 +282,14 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Additional Dog — Shared Luxury', price: '$50' },
       { label: 'Holiday / Peak, per pet a night', price: '+$10' },
     ],
+    notes: [
+      'Potty walks and breaks roughly every two hours during daytime care through 6pm, plus an overnight potty pad.',
+      'Every boarded dog gets two hours of play a day — an hour in the morning, an hour in the evening. More can be purchased.',
+      'Condos are single-dog only and cannot be shared. Shared-suite rates apply to compatible same-household dogs in Standard, Premium or Luxury.',
+      'The Luxury Suite includes a standard departure bath; extra coat care may still apply.',
+      'Boarded pets are fed to their usual home schedule, on food you bring. A food fee may apply if it runs out.',
+      'A $10 per pet, per night holiday and peak fee applies on designated high-demand dates.',
+    ],
   },
   {
     title: 'Cat Boarding',
@@ -277,6 +299,11 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Cat Standard Suite', price: '$30' },
       { label: 'Additional Cat — Shared Standard', price: '$25' },
       { label: 'Holiday / Peak, per cat a night', price: '+$10' },
+    ],
+    notes: [
+      'Additional-cat rates are for compatible, bonded cats from the same household sharing when appropriate.',
+      'Boarded cats are fed to their usual home schedule, on food you bring.',
+      'A $10 per cat, per night holiday and peak fee applies on designated high-demand dates.',
     ],
   },
   {
@@ -288,6 +315,11 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'XL Dog Bath', price: 'From $55' },
       { label: 'Cat Bath', price: 'From $40' },
       { label: 'Extra Coat Care', price: 'From $15' },
+    ],
+    notes: [
+      'Brushing is included before every bath.',
+      'Extra coat care applies when a coat needs substantially more work — heavy shedding, impacted undercoat or significant tangling.',
+      'Severe matting may need professional grooming before a bath can be done safely.',
     ],
   },
   {
@@ -301,18 +333,13 @@ export const pricingCategories: PriceCategory[] = [
       { label: 'Medication Administration', price: 'From $5' },
       { label: 'Departure Bath', price: 'Bath rate' },
     ],
+    notes: [
+      'Extra playtime is on top of the two hours of play already included with boarding.',
+      'Medications that can safely be given together at one scheduled time are covered by a single fee.',
+    ],
   },
 ]
 
-/* Printed under every rate list — the conditions the prices above assume. */
-export const pricingNotes = [
-  'Potty walks roughly every two hours through 6pm or pickup. Boarding dogs also get an overnight potty pad.',
-  'Every boarded dog gets two hours of play a day — an hour in the morning, an hour in the evening.',
-  'Additional-pet rates are for compatible pets from the same household. Condos hold one dog and cannot be shared.',
-  'A $10 per pet, per night holiday and peak fee applies on designated high-demand dates.',
-  'Boarded pets are fed to their usual home schedule, on food you bring. A food fee may apply if it runs out.',
-  'Memberships run to a four-week minimum. The Luxury Suite includes a departure bath; extra coat care may still apply.',
-]
 
 /* ── Footer ── */
 export const footer = {

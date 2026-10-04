@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { pricingCategories, pricingNotes, ratePage, fromPrice, EASE } from '../data'
+import { pricingCategories, ratePage, fromPrice, EASE } from '../data'
 import { Words } from './primitives'
 import SectionTag from './SectionTag'
 
@@ -51,13 +51,11 @@ export default function PricingOverview() {
           ))}
         </div>
 
-        <ul className="mt-10 space-y-1.5">
-              {pricingNotes.map(note => (
-                <li key={note} className="font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
-                  *{note}
-                </li>
-              ))}
-            </ul>
+        <p className="mt-10 font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
+          *A $10 per pet, per night holiday and peak fee applies to overnight boarding on
+          designated high-demand dates. Each rate list carries the conditions for its own
+          services.
+        </p>
       </div>
     </section>
   )

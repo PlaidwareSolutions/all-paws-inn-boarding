@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { pricingCategories, pricingNotes, ratePage, type PriceCategory } from '../data'
+import { pricingCategories, ratePage, type PriceCategory } from '../data'
 import { Words, Reveal } from './primitives'
 import SectionTag from './SectionTag'
 import BookButton from './BookButton'
@@ -23,27 +23,41 @@ export default function PricingDetail({ category }: { category: PriceCategory })
             </p>
           </div>
 
-          <Reveal className="mt-12 max-w-2xl">
-            <ul className="border-t border-ink/20">
-              {category.items.map(item => (
-                <li key={item.label} className="flex items-baseline gap-4 border-b border-ink/15 py-5">
-                  <span className="font-sans text-[1.05rem] text-ink-70">{item.label}</span>
-                  <span className="mx-2 flex-1 translate-y-[-0.28em] border-b border-dotted border-ink/30" />
-                  <span className="shrink-0 font-serif text-[clamp(1.3rem,2.4vw,1.8rem)] text-ink">
-                    {item.price}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <ul className="mt-8 space-y-1.5">
-              {pricingNotes.map(note => (
-                <li key={note} className="font-sans text-[0.88rem] italic leading-relaxed text-ink/68">
-                  *{note}
-                </li>
-              ))}
-            </ul>
-            <BookButton label="Reserve a room" size="lg" className="mt-10" />
-          </Reveal>
+          {/* Rates on the left, the conditions that govern them in the right column rather
+              than stacked underneath — the right half of this page was empty, and the notes
+              read better beside the prices they qualify than as a footnote below them. */}
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
+            <Reveal className="md:col-span-7">
+              <ul className="border-t border-ink/20">
+                {category.items.map(item => (
+                  <li key={item.label} className="flex items-baseline gap-4 border-b border-ink/15 py-5">
+                    <span className="font-sans text-[1.05rem] text-ink-70">{item.label}</span>
+                    <span className="mx-2 flex-1 translate-y-[-0.28em] border-b border-dotted border-ink/30" />
+                    <span className="shrink-0 font-serif text-[clamp(1.3rem,2.4vw,1.8rem)] text-ink">
+                      {item.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <BookButton label="Reserve a room" size="lg" className="mt-10" />
+            </Reveal>
+
+            {category.notes && (
+              <Reveal delay={0.1} className="md:col-span-4 md:col-start-9">
+                <h2 className="label text-ink/60">Good to know</h2>
+                <ul className="mt-5 space-y-4 border-t border-ink/20 pt-5">
+                  {category.notes.map(note => (
+                    <li
+                      key={note}
+                      className="font-sans text-[0.92rem] font-medium leading-[1.65] text-ink"
+                    >
+                      {note}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
+          </div>
         </div>
       </section>
 
