@@ -5,14 +5,9 @@
 const U = (id: string, w = 1600, q = 80) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`
 
-/**
- * Booking is handled by Gingr, not on this site. Every "Book now" opens this.
- *
- * TODO: swap for All Paws Inn's own Gingr subdomain — it will look like
- * https://allpawsinn.gingrapp.com/front_end/login — this is the vendor's
- * home page standing in until that address is known.
- */
-export const GINGR_BOOKING_URL = 'https://www.gingrapp.com/'
+/** Booking is handled by Gingr, not on this site. Every "Book now" opens this. */
+export const GINGR_BOOKING_URL =
+  'https://allpawsinnboarding.portal.gingrapp.com/public/login'
 
 export const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -580,6 +575,18 @@ export const socials: Social[] = [
   { id: 'instagram', label: 'Instagram', handle: '@allpawsinn', url: 'https://instagram.com' },
   { id: 'facebook', label: 'Facebook', handle: 'All Paws Inn', url: 'https://facebook.com' },
   { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
+]
+
+/** The towns All Paws Inn serves, printed along the foot of every page. */
+export const serviceAreas = [
+  'Houston',
+  'Clear Lake',
+  'Friendswood',
+  'Webster',
+  'Kemah',
+  'El Lago',
+  'Seabrook',
+  'Nassau Bay',
 ]
 
 /** Condensed for the footer — the day-by-day table belongs on the Contact page. */

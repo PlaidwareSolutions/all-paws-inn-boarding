@@ -85,11 +85,14 @@ export default function Navbar() {
           <div className="ml-auto flex flex-1 flex-col justify-center lg:justify-start">
             {/* phone plate — bleeds to the right edge, starting where the mark ends */}
             <div className="hidden justify-end bg-teal-soft py-3 pl-10 pr-[clamp(1.25rem,4vw,4rem)] lg:flex">
-              <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="group text-right">
-                <span className="block font-sans text-[0.64rem] font-bold uppercase tracking-[0.2em] text-ink/70">
-                  {footer.area}
+              <a
+                href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
+                className="group flex items-baseline gap-3 text-right"
+              >
+                <span className="font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ink/70">
+                  Call Us Now:
                 </span>
-                <span className="mt-0.5 block font-sans text-[1.4rem] font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-ember">
+                <span className="font-sans text-[1.4rem] font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-ember">
                   {footer.phone}
                 </span>
               </a>

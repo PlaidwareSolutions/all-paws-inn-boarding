@@ -29,7 +29,7 @@ export default function HeroMedia() {
               opacity: { duration: 1.3, ease: EASE },
               scale: { duration: 4.4, ease: 'linear' },
             }}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
           />
         )
       })}

@@ -1,4 +1,4 @@
-import { footer, hoursSummary } from '../data'
+import { footer, hoursSummary, serviceAreas } from '../data'
 import SocialLinks from './SocialLinks'
 import logo from '../images/all-paws-logo.png'
 
@@ -70,9 +70,6 @@ export default function Footer() {
                 </div>
               ))}
             </dl>
-            <p className="mt-2 body-sm italic text-ink/62">
-              Overnight care runs around the clock.
-            </p>
             <a
               href="/contact/"
               className="ul-draw mt-3 inline-block font-sans text-[0.88rem] font-medium text-ink"
@@ -95,11 +92,16 @@ export default function Footer() {
       <div className="gutter flex flex-col gap-2 pb-6 pt-4 label !tracking-[0.14em] text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:!tracking-[0.26em] lg:pb-4">
         <span className="whitespace-nowrap">© {year} All Paws Inn</span>
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="whitespace-nowrap">Houston</span>
-          <span aria-hidden="true" className="text-teal">·</span>
-          <span className="whitespace-nowrap">Clear Lake</span>
-          <span aria-hidden="true" className="text-teal">·</span>
-          <span className="whitespace-nowrap">Space Center Houston</span>
+          {serviceAreas.map((city, i) => (
+            <span key={city} className="flex items-center gap-x-2">
+              {i > 0 && (
+                <span aria-hidden="true" className="text-teal">
+                  ·
+                </span>
+              )}
+              <span className="whitespace-nowrap">{city}</span>
+            </span>
+          ))}
         </span>
       </div>
     </footer>

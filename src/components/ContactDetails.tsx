@@ -1,5 +1,5 @@
-import { MapPin, Phone, Mail, Instagram } from 'lucide-react'
-import { footer, openingHours } from '../data'
+import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react'
+import { footer, openingHours, socials } from '../data'
 import { Words, Reveal } from './primitives'
 import SectionTag from './SectionTag'
 import BookButton from './BookButton'
@@ -8,10 +8,13 @@ const mapQuery = encodeURIComponent(footer.location)
 
 /** The Contact page body — how to reach the house, and how to find it. */
 export default function ContactDetails() {
+  const facebook = socials.find(x => x.id === 'facebook')!
+
   return (
     <section id="contact-details" aria-labelledby="contact-h" className="bg-paper pt-10 pb-24 md:pt-14 md:pb-32">
       <div className="gutter">
-        <SectionTag name="Contact" className="mb-8" />
+        <SectionTag name="Contact" className="mb-4" />
+        <p className="body-lg mb-6 font-medium text-teal">Come tour our pet care facility!</p>
 
         <div>
           <h1 id="contact-h" className="d-1 font-serif text-ink">
@@ -84,6 +87,21 @@ export default function ContactDetails() {
                     </a>
                   </span>
                 </li>
+
+                <li className="flex items-start gap-4 border-b border-ink/15 py-5">
+                  <Facebook size={18} className="mt-1 shrink-0 text-teal" aria-hidden="true" />
+                  <span>
+                    <span className="label block text-ink/55">Facebook</span>
+                    <a
+                      href={facebook.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ul-draw mt-1 block body text-ink"
+                    >
+                      {facebook.handle}
+                    </a>
+                  </span>
+                </li>
               </ul>
             </Reveal>
 
@@ -97,9 +115,6 @@ export default function ContactDetails() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 body-sm italic text-ink/62">
-                Overnight care runs around the clock.
-              </p>
             </Reveal>
 
             <Reveal delay={0.14}>
@@ -107,7 +122,7 @@ export default function ContactDetails() {
             </Reveal>
           </div>
 
-          <div>
+          <div className="md:self-start">
             <iframe
               src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
               title="All Paws Inn location"
