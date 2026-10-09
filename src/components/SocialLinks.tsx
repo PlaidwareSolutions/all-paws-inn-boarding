@@ -29,7 +29,7 @@ export default function SocialLinks({ className = '' }: { className?: string }) 
             target="_blank"
             rel="noreferrer"
             aria-label={`All Paws Inn on ${s.label} — ${s.handle}`}
-            className="grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-ink transition-colors duration-300 hover:border-teal hover:bg-teal hover:text-bone"
+            className="grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-ink transition-colors duration-300 hover:border-flame hover:bg-flame hover:text-bone"
           >
             <Mark id={s.id} />
           </a>

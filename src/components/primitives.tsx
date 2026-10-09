@@ -89,6 +89,7 @@ export function ClipImage({
   imgClassName = '',
   from = 'bottom',
   eager = false,
+  position,
 }: {
   src: string
   alt: string
@@ -96,6 +97,8 @@ export function ClipImage({
   imgClassName?: string
   from?: 'bottom' | 'left'
   eager?: boolean
+  /** object-position for this image. Inline, so it always beats the default class. */
+  position?: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [shown, setShown] = useState(false)
@@ -129,6 +132,7 @@ export function ClipImage({
         alt={alt}
         loading={eager ? 'eager' : 'lazy'}
         style={{
+          ...(position ? { objectPosition: position } : null),
           clipPath: shown ? 'inset(0 0 0 0)' : hidden,
           transition: 'clip-path 1.05s cubic-bezier(.16,1,.3,1), transform 1.4s cubic-bezier(.16,1,.3,1)',
           transform: shown ? 'scale(1)' : 'scale(1.12)',

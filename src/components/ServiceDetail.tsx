@@ -47,6 +47,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
             <ClipImage
               src={service.image}
               alt={service.imageAlt}
+              position={service.imageFocus}
               eager
               className="aspect-[4/3] w-full rounded-3xl md:aspect-[5/4]"
             />
@@ -65,14 +66,14 @@ export default function ServiceDetail({ service }: { service: Service }) {
               <li key={o.title}>
                 <a
                   href={servicePage(o.title)}
-                  className="group relative z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition-colors duration-300 hover:border-teal/60"
+                  className="group relative z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/15 bg-bone px-5 py-4 transition duration-300 hover:border-flame hover:shadow-[0_0_0_5px_rgba(244,85,29,0.38),0_0_26px_0_rgba(244,85,29,0.40)]"
                 >
-                  <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-teal">
+                  <span className="font-serif text-[1.15rem] text-ink transition-colors duration-300 group-hover:text-flame">
                     {o.title}
                   </span>
                   <ArrowRight
                     size={15}
-                    className="shrink-0 text-teal transition-transform duration-300 group-hover:translate-x-1"
+                    className="shrink-0 text-teal transition duration-300 group-hover:translate-x-1 group-hover:text-flame"
                   />
                 </a>
               </li>

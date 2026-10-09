@@ -104,6 +104,13 @@ export interface Service {
   from: string
   image: string
   imageAlt: string
+  /**
+   * CSS object-position for this photograph. Three of these sources are tall portraits
+   * shown in a 5:4 frame, so roughly 45% of their height is cropped away; the default
+   * 30% was slicing the top of the subject off. Measured per image against where the
+   * animal's head actually sits.
+   */
+  imageFocus?: string
 }
 
 export const services: Service[] = [
@@ -132,6 +139,7 @@ export const services: Service[] = [
     from: 'From $25 a half day',
     image: U('1775018118638-f5d3a8c60f39', 1400),
     imageAlt: 'A corgi grinning up at the camera',
+    imageFocus: '50% 2%',
   },
   {
     title: 'Cat Boarding',
@@ -171,6 +179,7 @@ export const services: Service[] = [
     from: 'From $30 a bath',
     image: U('1598875706250-21faaf804361', 1400),
     imageAlt: 'A freshly groomed golden retriever, bright and happy',
+    imageFocus: '50% 4%',
   },
 ]
 
@@ -596,7 +605,7 @@ export const hoursSummary: [string, string][] = [
   ['Sunday', 'Closed'],
 ]
 
-/** Front-desk hours, day by day. Overnight care runs around the clock regardless. */
+/** Front-desk hours, day by day. */
 export const openingHours: [string, string][] = [
   ['Mon', '8:00am – 6:00pm'],
   ['Tue', '8:00am – 6:00pm'],
@@ -637,6 +646,7 @@ export const navLinks: NavLink[] = [
     children: [
       { label: 'Our Story', href: '/about/our-story/' },
       { label: 'Team', href: '/about/team/' },
+      { label: 'Guest Policies', href: '/guidelines/' },
     ],
   },
   {

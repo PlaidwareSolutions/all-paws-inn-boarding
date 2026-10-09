@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, MapPin, Phone, Clock } from 'lucide-react'
-import { navLinks, EASE, footer, type NavLink, GINGR_BOOKING_URL } from '../data'
+import { navLinks, EASE, footer, serviceAreas, type NavLink, GINGR_BOOKING_URL } from '../data'
 import logo from '../images/all-paws-logo.png'
 
 /* "/about/team/", "/about/team", "/about/team/index.html" all mean the same page. */
@@ -83,19 +83,37 @@ export default function Navbar() {
           </a>
 
           <div className="ml-auto flex flex-1 flex-col justify-center lg:justify-start">
-            {/* phone plate — bleeds to the right edge, starting where the mark ends */}
-            <div className="hidden justify-end bg-teal-soft py-3 pl-10 pr-[clamp(1.25rem,4vw,4rem)] lg:flex">
-              <a
-                href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
-                className="group flex items-baseline gap-3 text-right"
-              >
-                <span className="font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ink/70">
-                  Call Us Now:
-                </span>
-                <span className="font-sans text-[1.4rem] font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-ember">
-                  {footer.phone}
-                </span>
-              </a>
+            {/* phone plate — bleeds to the right edge, starting where the mark ends.
+                The towns we serve fill the empty left half, two rows deep. */}
+            <div className="hidden items-center justify-between gap-8 bg-teal-soft py-2.5 pl-10 pr-[clamp(1.25rem,4vw,4rem)] lg:flex">
+              {/* Four to a row. Equal-width columns (1fr, so every column takes the width of
+                  the longest town) put each bullet and each town name on the same x, which a
+                  content-sized column grid cannot do. */}
+              <ul className="grid grid-cols-4 gap-x-6 gap-y-1 font-sans text-[0.68rem] font-bold uppercase leading-[1.5] tracking-[0.13em] text-ink/70 xl:gap-x-8">
+                {serviceAreas.map(a => (
+                  <li key={a} className="flex items-center gap-2">
+                    <span aria-hidden="true" className="text-[0.8em] text-ink/70">
+                      &bull;
+                    </span>
+                    {a}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-center gap-7">
+                <span aria-hidden="true" className="h-9 w-px shrink-0 bg-ink/25" />
+                <a
+                  href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
+                  className="group flex items-baseline gap-3 text-right"
+                >
+                  <span className="font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ink/70">
+                    Call Us Now:
+                  </span>
+                  <span className="font-sans text-[1.4rem] font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-ember">
+                    {footer.phone}
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* links + booking CTA, right-aligned under the plate */}
@@ -174,7 +192,7 @@ export default function Navbar() {
                         href={l.href}
                         aria-current={isCurrentPage(l.href) ? 'page' : undefined}
                         className={`flex-1 py-3.5 font-serif text-[9vw] leading-[1.15] ${
-                          isCurrentPage(l.href) ? 'text-teal' : ''
+                          isCurrentPage(l.href) ? 'text-flame' : ''
                         }`}
                       >
                         {l.label}
@@ -228,21 +246,13 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + navLinks.length * 0.06, duration: 0.55, ease: EASE }}
                 onClick={() => setOpen(false)}
-                className="block w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-teal"
+                className="block w-full py-4 text-left font-serif text-[9vw] italic leading-[1.15] text-flame"
               >
                 Book now →
               </motion.a>
             </nav>
 
             <div className="flex flex-col gap-4 px-6 py-8 font-sans text-[0.66rem] uppercase tracking-[0.22em] text-bone/65">
-              <a
-                href="/guidelines/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ul-draw self-start font-bold text-bone/85"
-              >
-                Guest Policies ↗
-              </a>
               <div className="flex items-center justify-between gap-4">
                 <a
                   href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
@@ -290,8 +300,8 @@ function NavItem({ link }: { link: NavLink }) {
       <a
         href={link.href}
         aria-current={current ? 'page' : undefined}
-        className={`ul-draw whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 hover:text-teal xl:px-4 ${
-          current ? 'text-teal' : 'text-ink'
+        className={`whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 hover:bg-flame hover:text-bone xl:px-4 ${
+          current ? 'text-flame' : 'text-ink'
         }`}
       >
         {link.label}
@@ -316,11 +326,11 @@ function NavItem({ link }: { link: NavLink }) {
         href={link.href}
         aria-expanded={open}
         aria-current={current ? 'page' : undefined}
-        className={`group flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 xl:px-4 ${
-          open || current ? 'text-teal' : 'text-ink hover:text-teal'
+        className={`group flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 font-sans text-[1.02rem] font-bold tracking-tight transition-colors duration-300 hover:bg-flame hover:text-bone xl:px-4 ${
+          open ? 'bg-flame text-bone' : current ? 'text-flame' : 'text-ink'
         }`}
       >
-        <span className="ul-draw">{link.label}</span>
+        <span>{link.label}</span>
         <ChevronDown
           size={13}
           strokeWidth={2.5}
@@ -350,7 +360,7 @@ function NavItem({ link }: { link: NavLink }) {
                     <a
                       href={c.href}
                       onClick={() => setOpen(false)}
-                      className="block px-5 py-3.5 font-sans text-[0.95rem] font-semibold text-ink transition-colors duration-200 hover:bg-ink/[0.04] hover:text-teal"
+                      className="block px-5 py-3.5 font-sans text-[0.95rem] font-semibold text-ink transition-colors duration-200 hover:bg-flame hover:text-bone"
                     >
                       {c.label}
                     </a>

@@ -36,7 +36,7 @@ export default function Footer() {
                 href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                 target="_blank"
                 rel="noreferrer"
-                className="ul-draw block body-sm text-ink-70"
+                className="ul-draw block body-sm text-ink-70 transition-colors duration-300 hover:text-flame"
               >
                 {footer.street}
                 <br />
@@ -46,13 +46,13 @@ export default function Footer() {
 
             <p className="mt-3 body-sm text-ink-70">
               T:{' '}
-              <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
+              <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink transition-colors duration-300 hover:text-flame">
                 {footer.phone}
               </a>
             </p>
             <p className="body-sm text-ink-70">
               E:{' '}
-              <a href={`mailto:${footer.email}`} className="ul-draw text-ink">
+              <a href={`mailto:${footer.email}`} className="ul-draw text-ink transition-colors duration-300 hover:text-flame">
                 {footer.email}
               </a>
             </p>
@@ -72,7 +72,7 @@ export default function Footer() {
             </dl>
             <a
               href="/contact/"
-              className="ul-draw mt-3 inline-block font-sans text-[0.88rem] font-medium text-ink"
+              className="ul-draw mt-3 inline-block font-sans text-[0.88rem] font-medium text-ink transition-colors duration-300 hover:text-flame"
             >
               Full hours &amp; directions
             </a>

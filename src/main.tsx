@@ -14,6 +14,7 @@ import ServiceDetail from './components/ServiceDetail'
 import PricingOverview from './components/PricingOverview'
 import PricingDetail from './components/PricingDetail'
 import ContactDetails from './components/ContactDetails'
+import GuidelinesPage from './components/GuidelinesPage'
 
 /* Each HTML file names its page with data-page on #root. Every entry below is a separately
    addressed document, so a nav click is a real page load — not a route swap. */
@@ -27,6 +28,7 @@ const pages: Record<string, ReactNode> = {
   services: <ServicesOverview />,
   pricing: <PricingOverview />,
   contact: <ContactDetails />,
+  guidelines: <GuidelinesPage />,
 }
 
 for (const s of services) {
