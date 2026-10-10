@@ -219,10 +219,12 @@ export interface PriceCategory {
   items: PriceItem[]
   /** Conditions that apply to THIS category only — printed under its rate list. */
   notes?: string[]
+  /** A headline the client wrote for the category, printed above the intro. */
+  tagline?: string
   /**
-   * The client's own description of the service, printed in place of the shared opening
-   * line. Whether the rates beneath still carry their own detail is per category — some
-   * were struck when the intro arrived, some were kept.
+   * The client's own description of the service, printed under the title. Whether the
+   * rates beneath still carry their own detail is per category — some were struck when
+   * the intro arrived, some were kept.
    */
   intro?: string[]
 }
@@ -408,12 +410,16 @@ export const pricingCategories: PriceCategory[] = [
   },
   {
     title: 'Cat Boarding',
+    tagline: 'A Cozy Place for Your Cat to Call Home — For a Little While',
+    intro: [
+      'Travel can be stressful enough without worrying about your cat. Our feline boarding options provide calm accommodations, attentive care, fresh litter, familiar meals and fresh water throughout the stay.',
+    ],
     items: [
       {
         label: 'Condo',
         price: '$25',
         detail:
-          "Private cat accommodation with fresh litter, water, gentle attention, and meals to your cat's normal schedule using food from home.",
+          'A comfortable, calm accommodation for up to two cats, featuring fresh litter boxes, attentive care, customized feeding using food provided from home, supervised play and fresh water.',
       },
       {
         label: 'Additional Cat — Shared Condo',
@@ -425,7 +431,7 @@ export const pricingCategories: PriceCategory[] = [
         label: 'Standard Suite',
         price: '$35',
         detail:
-          'A roomier private retreat with fresh litter, water, gentle attention and normal-schedule feeding.',
+          'Our Standard Suite gives up to two cats a comfortable place to settle in, with fresh litter, customized feeding, premium cat-appropriate enrichment, a dedicated 20-minute one-on-one play session, supervised play and fresh water.',
       },
       {
         label: 'Additional Cat — Shared Standard',
@@ -436,6 +442,8 @@ export const pricingCategories: PriceCategory[] = [
       {
         label: 'Luxury Suite',
         price: '$50',
+        detail:
+          'For cats who appreciate the finer things, our Luxury Suite combines a calm private environment with premium enrichment, one-on-one attention, customized feeding, fresh litter and water, eligible routine medication administration and a complimentary basic departure bath. (Extra Coat Care charges may still apply.)',
       },
       {
         label: 'Additional Cat — Shared Luxury',
@@ -446,14 +454,7 @@ export const pricingCategories: PriceCategory[] = [
       {
         label: 'Holiday / Peak, per cat a night',
         price: '+$10',
-        detail:
-          'Applies per cat, per night on overnight cat boarding during designated peak periods.',
       },
-    ],
-    notes: [
-      'Additional-cat rates are for compatible, bonded cats from the same household sharing when appropriate.',
-      'Boarded cats are fed to their usual home schedule, on food you bring.',
-      'A $10 per cat, per night holiday and peak fee applies on designated high-demand dates.',
     ],
   },
   {
@@ -506,16 +507,14 @@ export const pricingCategories: PriceCategory[] = [
     title: 'Add-Ons',
     items: [
       {
-        label: 'Extra Playtime, per 30 min',
+        label: 'Extra Playtime',
         price: '$10',
-        detail:
-          'Additional one-on-one play or enrichment, beyond the two hours of daily play included with boarding.',
+        detail: 'A dedicated 20-minute individual play session with a staff member.',
       },
       {
         label: 'Extra Leisure Walk',
         price: '$10',
-        detail:
-          'A dedicated individual walk, beyond the routine potty walks and breaks.',
+        detail: 'A dedicated 20-minute stroll to relax and explore.',
       },
       {
         label: 'Photo Update',
@@ -547,10 +546,6 @@ export const pricingCategories: PriceCategory[] = [
         detail:
           'A standard bath before pickup. Extra coat care charges may apply where needed.',
       },
-    ],
-    notes: [
-      'Extra playtime is on top of the two hours of play already included with boarding.',
-      'Medications that can safely be given together at one scheduled time are covered by a single fee.',
     ],
   },
 ]

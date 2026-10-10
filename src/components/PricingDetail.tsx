@@ -27,7 +27,10 @@ export default function PricingDetail({ category }: { category: PriceCategory })
             <h1 id="rate-h" className="d-2 font-serif text-ink">
               <Words lines={[category.title]} accentLine={0} />
             </h1>
-            {category.intro ? (
+            {category.tagline && (
+              <p className="body-lg mt-4 font-semibold text-ink">{category.tagline}</p>
+            )}
+            {category.intro && (
               /* Each paragraph runs the full width of the rate list beneath it. */
               <div className="mt-4 space-y-4">
                 {category.intro.map(para => (
@@ -36,11 +39,6 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                   </p>
                 ))}
               </div>
-            ) : (
-              <p className="lede mt-4 max-w-2xl text-ink-70">
-                Every stay includes round-the-clock care and a nightly report card. No booking
-                fees.
-              </p>
             )}
           </div>
 
