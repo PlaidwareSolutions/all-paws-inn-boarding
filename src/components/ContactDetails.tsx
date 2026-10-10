@@ -13,21 +13,24 @@ export default function ContactDetails() {
   return (
     <section id="contact-details" aria-labelledby="contact-h" className="bg-paper pt-10 pb-24 md:pt-14 md:pb-32">
       <div className="gutter">
-        <SectionTag name="Contact" className="mb-4" />
-        <p className="body-lg mb-6 font-medium text-teal">Come tour our pet care facility!</p>
-
-        <div>
-          <h1 id="contact-h" className="d-1 font-serif text-ink">
-            <Words lines={['Come and see', 'the house.']} italicLine={1} accentLine={1} inline />
-          </h1>
-          <p className="lede measure mt-5 text-ink-70">
-            We are five minutes from Space Center Houston, in the heart of Clear Lake.
-            Drop in for a tour — no appointment needed.
-          </p>
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
+        {/* The map rides up beside the heading rather than starting below the intro, so
+            both columns begin on the same line. */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
           <div>
+            <h1 id="contact-h" className="d-1 font-serif text-ink">
+              <Words
+                lines={['Come tour our', 'pet care facility!']}
+                italicLine={1}
+                accentLine={1}
+                inline
+              />
+            </h1>
+            <p className="lede measure mt-5 text-ink-70">
+              We are five minutes from Space Center Houston, in the heart of Clear Lake.
+              Drop in for a tour — no appointment needed.
+            </p>
+
+            <div className="mt-14 md:mt-16">
             <Reveal>
               <ul className="border-t border-ink/20">
                 <li className="flex items-start gap-4 border-b border-ink/15 py-5">
@@ -120,6 +123,7 @@ export default function ContactDetails() {
             <Reveal delay={0.14}>
               <BookButton size="lg" className="mt-10" />
             </Reveal>
+            </div>
           </div>
 
           <div className="md:self-start">
