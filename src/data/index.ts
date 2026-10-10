@@ -591,7 +591,7 @@ export const socials: Social[] = [
   { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
 ]
 
-/** The towns All Paws Inn serves, printed along the foot of every page. */
+/** The towns All Paws Inn serves, in the order the client's footer markup prints them. */
 export const serviceAreas = [
   'Houston',
   'Clear Lake',
@@ -601,6 +601,20 @@ export const serviceAreas = [
   'El Lago',
   'Seabrook',
   'Nassau Bay',
+]
+
+/* The header bar prints the same eight towns, but the client sequenced that grid
+   separately — four to a row, reading across. Kept apart from the footer order above
+   so neither markup has to follow the other. */
+export const serviceAreasHeader = [
+  'Clear Lake',
+  'Friendswood',
+  'El Lago',
+  'Kemah',
+  'Webster',
+  'Nassau Bay',
+  'Seabrook',
+  'Houston',
 ]
 
 /** Condensed for the footer — the day-by-day table belongs on the Contact page. */

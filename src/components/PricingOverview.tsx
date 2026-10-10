@@ -12,10 +12,16 @@ export default function PricingOverview() {
 
         <div>
           <h1 id="rates-h" className="d-1 font-serif text-ink">
-            <Words lines={['The stay', 'they deserve.']} italicLine={1} accentLine={1} inline />
+            <Words
+              lines={['Your pet’s home', 'away from home.']}
+              italicLine={1}
+              accentLine={1}
+              inline
+            />
           </h1>
           <p className="lede measure mt-5 text-ink-70">
-            Every stay includes round-the-clock care and a nightly report card. No booking fees.
+            Explore our flexible hourly, daily, and overnight rates designed to fit your busy
+            lifestyle.
           </p>
         </div>
 
@@ -51,11 +57,6 @@ export default function PricingOverview() {
           ))}
         </div>
 
-        <p className="measure mt-10 body-sm italic text-ink/68">
-          *A $10 per pet, per night holiday and peak fee applies to overnight boarding on
-          designated high-demand dates. Each rate list carries the conditions for its own
-          services.
-        </p>
       </div>
     </section>
   )
