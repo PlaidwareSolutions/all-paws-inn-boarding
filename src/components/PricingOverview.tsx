@@ -49,7 +49,7 @@ export default function PricingOverview() {
                   )}
                 </p>
               </div>
-              <span className="mt-6 flex items-center gap-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink">
+              <span className="mt-6 flex items-center gap-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink transition-colors duration-300 group-hover:text-flame">
                 <span className="ul-draw">See rates</span>
                 <ArrowRight size={14} className="text-teal transition duration-300 group-hover:translate-x-1 group-hover:text-flame" />
               </span>

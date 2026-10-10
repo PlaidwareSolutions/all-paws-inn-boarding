@@ -41,7 +41,7 @@ export default function ContactDetails() {
                       href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="ul-draw mt-1 block body text-ink"
+                      className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"
                     >
                       {footer.street}
                       <br />
@@ -56,7 +56,7 @@ export default function ContactDetails() {
                     <span className="label block text-ink/55">Phone</span>
                     <a
                       href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
-                      className="ul-draw mt-1 block body text-ink"
+                      className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"
                     >
                       {footer.phone}
                     </a>
@@ -69,7 +69,7 @@ export default function ContactDetails() {
                     <span className="label block text-ink/55">Email</span>
                     <a
                       href={`mailto:${footer.email}`}
-                      className="ul-draw mt-1 block body text-ink"
+                      className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"
                     >
                       {footer.email}
                     </a>
@@ -84,7 +84,7 @@ export default function ContactDetails() {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noreferrer"
-                      className="ul-draw mt-1 block body text-ink"
+                      className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"
                     >
                       {footer.instagram}
                     </a>
@@ -99,7 +99,7 @@ export default function ContactDetails() {
                       href={facebook.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="ul-draw mt-1 block body text-ink"
+                      className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"
                     >
                       {facebook.handle}
                     </a>
@@ -137,7 +137,7 @@ export default function ContactDetails() {
               href={`https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center gap-2 font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ink"
+              className="mt-4 inline-flex items-center gap-2 font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:text-flame"
             >
               <span className="ul-draw">Get directions</span>
               <span aria-hidden="true">↗</span>

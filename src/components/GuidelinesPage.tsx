@@ -61,11 +61,11 @@ export default function GuidelinesPage() {
         <p className="body font-semibold text-ink">Questions about any of this?</p>
         <p className="mt-2 body-sm text-ink-70">
           Call{' '}
-          <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
+          <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink transition-colors duration-300 hover:text-flame">
             {footer.phone}
           </a>{' '}
           or email{' '}
-          <a href={`mailto:${footer.email}`} className="ul-draw text-ink">
+          <a href={`mailto:${footer.email}`} className="ul-draw text-ink transition-colors duration-300 hover:text-flame">
             {footer.email}
           </a>
         </p>

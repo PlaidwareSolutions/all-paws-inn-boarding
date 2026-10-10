@@ -256,7 +256,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between gap-4">
                 <a
                   href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`}
-                  className="ul-draw font-bold text-bone/85"
+                  className="ul-draw font-bold text-bone/85 transition-colors duration-300 hover:text-flame"
                 >
                   {footer.phone}
                 </a>
@@ -264,7 +264,7 @@ export default function Navbar() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="ul-draw font-bold text-bone/85"
+                  className="ul-draw font-bold text-bone/85 transition-colors duration-300 hover:text-flame"
                 >
                   {footer.instagram}
                 </a>
@@ -394,7 +394,7 @@ function ContactPanel() {
           </li>
           <li className="flex items-center gap-2.5">
             <Phone size={14} className="shrink-0 text-teal" aria-hidden="true" />
-            <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink">
+            <a href={`tel:${footer.phone.replace(/[^\d+]/g, '')}`} className="ul-draw text-ink transition-colors duration-300 hover:text-flame">
               {footer.phone}
             </a>
           </li>
@@ -407,7 +407,7 @@ function ContactPanel() {
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(footer.location)}`}
           target="_blank"
           rel="noreferrer"
-          className="mt-4 flex items-center gap-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.14em] text-ink"
+          className="mt-4 flex items-center gap-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:text-flame"
         >
           <span className="ul-draw">Get directions</span>
           <span aria-hidden="true">↗</span>
