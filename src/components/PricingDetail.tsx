@@ -28,16 +28,10 @@ export default function PricingDetail({ category }: { category: PriceCategory })
               <Words lines={[category.title]} accentLine={0} />
             </h1>
             {category.intro ? (
-              /* The intro runs the full width of the rate list beneath it rather than
-                 stopping two thirds of the way across. Set as one column it would be
-                 ~135 characters a line, so the paragraphs sit side by side instead —
-                 the width is filled and a line stays about 65 characters. */
-              <div className="mt-4 md:columns-2 md:gap-12 lg:gap-16">
+              /* Each paragraph runs the full width of the rate list beneath it. */
+              <div className="mt-4 space-y-4">
                 {category.intro.map(para => (
-                  <p
-                    key={para}
-                    className="break-inside-avoid body-lg pb-4 text-ink-70 md:pb-0"
-                  >
+                  <p key={para} className="body-lg text-ink-70">
                     {para}
                   </p>
                 ))}
