@@ -241,6 +241,10 @@ export const fromPrice = (items: PriceItem[]): string | null => {
 export const pricingCategories: PriceCategory[] = [
   {
     title: 'Dog Daycare',
+    intro: [
+      'All Paws Inn daycare guests receive supervised play and socialization, fresh water throughout the day, meals according to their regular schedule using food provided from home, and scheduled potty walks. Full-day guests receive two 20-minute potty walks; half-day guests receive one.',
+      'Optional extras include additional leisure walk, one-on-one playtime, premium enrichment, medication administration, in-house meals, photo updates, and departure bathing. Please see our add-ons section for full details.',
+    ],
     items: [
       {
         label: 'Full Day',
