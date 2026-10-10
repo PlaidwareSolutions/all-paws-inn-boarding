@@ -582,7 +582,12 @@ export interface Social {
 
 export const socials: Social[] = [
   { id: 'instagram', label: 'Instagram', handle: '@allpawsinn', url: 'https://instagram.com' },
-  { id: 'facebook', label: 'Facebook', handle: 'All Paws Inn', url: 'https://facebook.com' },
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    handle: 'All Paws Inn',
+    url: 'https://www.facebook.com/profile.php?id=61594323009741',
+  },
   { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
 ]
 
