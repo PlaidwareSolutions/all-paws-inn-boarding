@@ -27,9 +27,20 @@ export default function PricingDetail({ category }: { category: PriceCategory })
             <h1 id="rate-h" className="d-2 font-serif text-ink">
               <Words lines={[category.title]} accentLine={0} />
             </h1>
-            <p className="lede mt-4 text-ink-70">
-              Every stay includes round-the-clock care and a nightly report card. No booking fees.
-            </p>
+            {category.intro ? (
+              <div className="mt-4 space-y-3">
+                {category.intro.map(para => (
+                  <p key={para} className="body-lg text-ink-70">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p className="lede mt-4 text-ink-70">
+                Every stay includes round-the-clock care and a nightly report card. No booking
+                fees.
+              </p>
+            )}
           </div>
 
           {/* The menu pattern: name, leader, price on one line, with what the rate covers
@@ -51,7 +62,9 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                       {item.price}
                     </span>
                   </div>
-                  <p className="measure mt-2 body text-ink-70">{item.detail}</p>
+                  {!category.intro && (
+                    <p className="measure mt-2 body text-ink-70">{item.detail}</p>
+                  )}
 
                   {/* An "Additional dog" rate is not a product of its own — it modifies the
                       rate above it, so it is nested and a step quieter throughout. */}
@@ -66,11 +79,13 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                           aria-hidden="true"
                           className="mx-1 flex-1 translate-y-[-0.3em] border-b border-dotted border-ink/20"
                         />
-                        <span className="shrink-0 font-serif text-[1.35rem] leading-none text-teal">
+                        <span className="shrink-0 font-serif text-[1.6rem] leading-none text-teal">
                           {mod.price}
                         </span>
                       </div>
-                      <p className="measure mt-1.5 body-sm text-ink/55">{mod.detail}</p>
+                      {!category.intro && (
+                        <p className="measure mt-1.5 body-sm text-ink/55">{mod.detail}</p>
+                      )}
                     </div>
                   ))}
                 </li>
@@ -81,7 +96,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
 
           {/* The sheet prints its conditions under each table, so they sit at the foot of
               the section here too rather than off in a sidebar. */}
-          {category.notes && (
+          {category.notes && !category.intro && (
             <Reveal
               delay={0.1}
               className="mt-14 border-t border-ink/20 pt-8"

@@ -216,6 +216,12 @@ export interface PriceCategory {
   items: PriceItem[]
   /** Conditions that apply to THIS category only — printed under its rate list. */
   notes?: string[]
+  /**
+   * The client's own description of the service. Where it is given it speaks for the
+   * whole category, so the page prints it instead of the shared opening line, and drops
+   * the per-rate detail and the "Good to know" list that would otherwise repeat it.
+   */
+  intro?: string[]
 }
 
 /**
@@ -268,6 +274,10 @@ export const pricingCategories: PriceCategory[] = [
   },
   {
     title: 'Cat Daycare',
+    intro: [
+      'All Paws Inn cat daycare provides a calmer environment with attentive care, fresh litter boxes, familiar feeding routines, fresh water and opportunities for supervised play and enrichment appropriate for our feline guests.',
+      'Optional extras include additional one-on-one playtime, premium enrichment, medication administration, in-house meals, photo updates, and departure bathing. Please see our add-ons section for full details.',
+    ],
     items: [
       {
         label: 'Full Day',
