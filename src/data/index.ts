@@ -410,7 +410,7 @@ export const pricingCategories: PriceCategory[] = [
     title: 'Cat Boarding',
     items: [
       {
-        label: 'Cat Condo',
+        label: 'Condo',
         price: '$25',
         detail:
           "Private cat accommodation with fresh litter, water, gentle attention, and meals to your cat's normal schedule using food from home.",
@@ -422,14 +422,24 @@ export const pricingCategories: PriceCategory[] = [
           'For compatible, bonded cats from the same household, sharing where appropriate.',
       },
       {
-        label: 'Cat Standard Suite',
-        price: '$30',
+        label: 'Standard Suite',
+        price: '$35',
         detail:
           'A roomier private retreat with fresh litter, water, gentle attention and normal-schedule feeding.',
       },
       {
         label: 'Additional Cat — Shared Standard',
-        price: '$25',
+        price: '$30',
+        detail:
+          'For compatible, bonded same-household cats, sharing where appropriate.',
+      },
+      {
+        label: 'Luxury Suite',
+        price: '$50',
+      },
+      {
+        label: 'Additional Cat — Shared Luxury',
+        price: '$45',
         detail:
           'For compatible, bonded same-household cats, sharing where appropriate.',
       },
