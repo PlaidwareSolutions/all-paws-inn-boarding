@@ -17,7 +17,12 @@ export default function GuidelinesPage() {
 
       <div className="gutter grid grid-cols-1 gap-x-14 gap-y-12 pb-24 md:grid-cols-[16rem_1fr] md:pb-32">
         {/* contents rail */}
-        <nav aria-label="Contents" className="md:sticky md:top-[calc(var(--header-h,0px)+2rem)] md:self-start">
+        <nav
+          aria-label="Contents"
+          /* Seventeen sections stand taller than the screen left under the header, and a
+             pinned rail cannot be reached by scrolling the page, so it scrolls itself. */
+          className="md:sticky md:top-[calc(var(--header-h,0px)+2rem)] md:max-h-[calc(100svh-var(--header-h,0px)-4rem)] md:self-start md:overflow-y-auto md:pr-3"
+        >
           <p className="label border-b border-ink/20 pb-3 text-ink/62">Contents</p>
           <ul className="mt-4 space-y-2.5">
             {guidelineSections.map(s => (
@@ -34,12 +39,14 @@ export default function GuidelinesPage() {
         </nav>
 
         {/* the policies */}
-        <div className="max-w-3xl">
+        <div>
           {guidelineSections.map(s => (
             <section
               key={s.title}
               id={slug(s.title)}
-              className="scroll-mt-10 border-t border-ink/20 py-10 first:border-t-0 first:pt-0"
+              /* An anchor jump has to clear the sticky header, or the heading it lands on
+                 sits behind it. */
+              className="scroll-mt-[calc(var(--header-h,0px)+1.5rem)] border-t border-ink/20 py-10 first:border-t-0 first:pt-0"
             >
               <h2 className="d-3 font-serif text-ink">
                 {s.title}
