@@ -23,20 +23,27 @@ export default function PricingDetail({ category }: { category: PriceCategory })
         <div className="gutter">
           <SectionTag name="The rate card" className="mb-8" />
 
-          <div className="max-w-2xl">
+          <div>
             <h1 id="rate-h" className="d-2 font-serif text-ink">
               <Words lines={[category.title]} accentLine={0} />
             </h1>
             {category.intro ? (
-              <div className="mt-4 space-y-3">
+              /* The intro runs the full width of the rate list beneath it rather than
+                 stopping two thirds of the way across. Set as one column it would be
+                 ~135 characters a line, so the paragraphs sit side by side instead —
+                 the width is filled and a line stays about 65 characters. */
+              <div className="mt-4 md:columns-2 md:gap-12 lg:gap-16">
                 {category.intro.map(para => (
-                  <p key={para} className="body-lg text-ink-70">
+                  <p
+                    key={para}
+                    className="break-inside-avoid body-lg pb-4 text-ink-70 md:pb-0"
+                  >
                     {para}
                   </p>
                 ))}
               </div>
             ) : (
-              <p className="lede mt-4 text-ink-70">
+              <p className="lede mt-4 max-w-2xl text-ink-70">
                 Every stay includes round-the-clock care and a nightly report card. No booking
                 fees.
               </p>
