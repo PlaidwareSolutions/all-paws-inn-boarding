@@ -585,22 +585,8 @@ export const socials: Social[] = [
   { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
 ]
 
-/** The towns All Paws Inn serves, in the order the client's footer markup prints them. */
+/** The towns All Paws Inn serves, in the order the client sequenced for the header. */
 export const serviceAreas = [
-  'Houston',
-  'Clear Lake',
-  'Friendswood',
-  'Webster',
-  'Kemah',
-  'El Lago',
-  'Seabrook',
-  'Nassau Bay',
-]
-
-/* The header bar prints the same eight towns, but the client sequenced that grid
-   separately — four to a row, reading across. Kept apart from the footer order above
-   so neither markup has to follow the other. */
-export const serviceAreasHeader = [
   'Clear Lake',
   'Friendswood',
   'El Lago',

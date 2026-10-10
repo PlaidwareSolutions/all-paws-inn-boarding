@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, MapPin, Phone, Clock } from 'lucide-react'
-import { navLinks, EASE, footer, serviceAreasHeader, type NavLink, GINGR_BOOKING_URL } from '../data'
+import { navLinks, EASE, footer, serviceAreas, type NavLink, GINGR_BOOKING_URL } from '../data'
 import logo from '../images/all-paws-logo.png'
 
 /* "/about/team/", "/about/team", "/about/team/index.html" all mean the same page. */
@@ -90,7 +90,7 @@ export default function Navbar() {
                   the longest town) put each bullet and each town name on the same x, which a
                   content-sized column grid cannot do. */}
               <ul className="grid grid-cols-4 gap-x-3 gap-y-1 font-sans text-[0.68rem] font-bold uppercase leading-[1.5] tracking-[0.12em] text-ink/70 xl:gap-x-7 xl:text-[0.78rem]">
-                {serviceAreasHeader.map(a => (
+                {serviceAreas.map(a => (
                   <li key={a} className="flex items-center gap-2 whitespace-nowrap">
                     <span aria-hidden="true" className="text-[0.8em] text-ink/70">
                       &bull;
