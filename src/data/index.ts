@@ -208,8 +208,11 @@ export const team: TeamMember[] = [
 export interface PriceItem {
   label: string
   price: string
-  /** The pricing sheet's "Detailed Inclusions" for this row — what the rate buys. */
-  detail: string
+  /**
+   * The pricing sheet's "Detailed Inclusions" for this row — what the rate buys.
+   * Omitted where the client struck it in favour of the category's intro.
+   */
+  detail?: string
 }
 export interface PriceCategory {
   title: string
@@ -217,9 +220,9 @@ export interface PriceCategory {
   /** Conditions that apply to THIS category only — printed under its rate list. */
   notes?: string[]
   /**
-   * The client's own description of the service. Where it is given it speaks for the
-   * whole category, so the page prints it instead of the shared opening line, and drops
-   * the per-rate detail and the "Good to know" list that would otherwise repeat it.
+   * The client's own description of the service, printed in place of the shared opening
+   * line. Whether the rates beneath still carry their own detail is per category — some
+   * were struck when the intro arrived, some were kept.
    */
   intro?: string[]
 }
@@ -249,31 +252,19 @@ export const pricingCategories: PriceCategory[] = [
       {
         label: 'Full Day',
         price: '$35',
-        detail:
-          'Supervised play and social time, fresh water, appropriate rest periods, and potty walks or breaks roughly every two hours through 6pm or pickup, whichever comes first.',
       },
       {
         label: 'Additional Dog — Same Household',
         price: '$30',
-        detail:
-          'The same full-day care for an additional dog from the same household.',
       },
       {
         label: 'Half Day — Up to 5 Hours',
         price: '$25',
-        detail:
-          'Up to five hours of supervised play, fresh water, rest as needed, and potty walks or breaks roughly every two hours while in our care.',
       },
       {
         label: 'Additional Dog — Half Day',
         price: '$20',
-        detail:
-          'The same half-day care for an additional dog from the same household.',
       },
-    ],
-    notes: [
-      'Potty walks and breaks roughly every two hours through 6pm or pickup, whichever comes first.',
-      'Additional-dog rates are for a second dog from the same household.',
     ],
   },
   {
@@ -286,35 +277,27 @@ export const pricingCategories: PriceCategory[] = [
       {
         label: 'Full Day',
         price: '$25',
-        detail:
-          'Private, calm daytime care with fresh litter, water, meals as needed, gentle attention and cat-appropriate enrichment.',
       },
       {
         label: 'Additional Cat — Full Day',
         price: '$20',
-        detail:
-          'Full-day care for an additional same-household cat.',
       },
       {
         label: 'Half Day — Up to 5 Hours',
         price: '$15',
-        detail:
-          'Up to five hours of private, calm daytime care.',
       },
       {
         label: 'Additional Cat — Half Day',
         price: '$10',
-        detail:
-          'Half-day care for an additional same-household cat.',
       },
-    ],
-    notes: [
-      'Private, calm daytime care — cats are never put in group play.',
-      'Additional-cat rates are for compatible cats from the same household.',
     ],
   },
   {
     title: 'Daycare Membership',
+    intro: [
+      'For pups who just can’t get enough of their friends at All Paws Inn, our daycare memberships make regular playtime easier—and reward families who visit us often.',
+      'Make their day even more special with an extra leisure walk, dedicated one-on-one playtime, a premium treat or frozen enrichment, medication administration, in-house meals, photo update or a departure bath. Please see our add-ons section for full details.',
+    ],
     items: [
       {
         label: '1 Day a Week',
@@ -353,16 +336,14 @@ export const pricingCategories: PriceCategory[] = [
           'Three weekly daycare days for an additional same-household dog.',
       },
       {
-        label: 'Unlimited',
+        label: '5 Days a Week',
         price: '$125',
-        detail:
-          'Daycare throughout the regular operating week, subject to reservations, capacity and facility policies.',
+        detail: 'Five reserved full daycare days each week.',
       },
       {
-        label: 'Additional Dog — Unlimited',
+        label: 'Additional Dog',
         price: '$105',
-        detail:
-          'Unlimited-plan pricing for an additional same-household dog.',
+        detail: 'Five weekly daycare days for an additional same-household dog.',
       },
     ],
     notes: [

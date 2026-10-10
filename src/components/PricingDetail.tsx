@@ -63,7 +63,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                       {item.price}
                     </span>
                   </div>
-                  {!category.intro && (
+                  {item.detail && (
                     <p className="measure mt-2 body text-ink-70">{item.detail}</p>
                   )}
 
@@ -84,7 +84,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                           {mod.price}
                         </span>
                       </div>
-                      {!category.intro && (
+                      {mod.detail && (
                         <p className="measure mt-1.5 body-sm text-ink/55">{mod.detail}</p>
                       )}
                     </div>
@@ -97,7 +97,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
 
           {/* The sheet prints its conditions under each table, so they sit at the foot of
               the section here too rather than off in a sidebar. */}
-          {category.notes && !category.intro && (
+          {category.notes && (
             <Reveal
               delay={0.1}
               className="mt-14 border-t border-ink/20 pt-8"
