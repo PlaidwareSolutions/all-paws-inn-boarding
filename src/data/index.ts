@@ -353,18 +353,22 @@ export const pricingCategories: PriceCategory[] = [
   },
   {
     title: 'Dog Boarding',
+    intro: [
+      'Leaving your dog behind should not mean spending your entire trip wondering whether they’re okay. At All Paws Inn, we provide comfortable accommodations, attentive care, familiar feeding routines, fresh water and opportunities for activity so you can travel with greater peace of mind.',
+      'Optional extras include leisure walk, one-on-one playtime, premium treat or frozen enrichment, medication administration, in-house meals, bedtime tuck-in/cuddle time, photo update and departure bathing services. Please see our add-ons section for full details.',
+    ],
     items: [
       {
         label: 'Condo',
         price: '$37',
         detail:
-          "An individual accommodation for one dog. Includes meals to your pet's normal schedule using food from home, potty walks roughly every two hours during daytime care through 6pm, an overnight potty pad, and two hours of play a day — an hour in the morning and an hour in the evening.",
+          'A cozy private space for one dog to relax and recharge. Condo guests receive customized feeding with food provided from home, two 20-minute potty walks, supervised play and fresh water throughout their stay.',
       },
       {
         label: 'Standard Suite',
         price: '$55',
         detail:
-          'All standard boarding care, plus a cot and blanket.',
+          "A little more room to stretch out. Our approximately 9' × 4' Standard Suite includes a cozy cot and blanket, customized feeding, two 20-minute potty walks, supervised play, fresh water and a dedicated 20-minute one-on-one play session with a team member.",
       },
       {
         label: 'Additional Dog — Shared Standard',
@@ -376,11 +380,11 @@ export const pricingCategories: PriceCategory[] = [
         label: 'Premium Suite',
         price: '$65',
         detail:
-          'All standard boarding care, plus a cot, blanket and mattress.',
+          "For pups who enjoy a few extra comforts, our approximately 9' × 5' Premium Suite includes a cot, mattress and blanket, plus premium enrichment, an additional 20-minute leisure walk, dedicated one-on-one play, routine potty walks, supervised play, customized feeding and fresh water.",
       },
       {
         label: 'Additional Dog — Shared Premium',
-        price: '$45',
+        price: '$50',
         detail:
           'Same care and amenities for a compatible same-household dog sharing the Premium Suite.',
       },
@@ -388,28 +392,18 @@ export const pricingCategories: PriceCategory[] = [
         label: 'Luxury Suite',
         price: '$75',
         detail:
-          'All standard boarding care, plus a cot, blanket, plush pet bed, television and a standard departure bath.',
+          "Our most spacious dog accommodation gives your pup the VIP treatment in an approximately 10' × 7' private suite with a cot, blanket, plush pet bed and television. Luxury guests also enjoy premium enrichment, an extra leisure walk, one-on-one playtime, routine potty walks, supervised play, customized feeding, fresh water, eligible routine medication administration and a complimentary basic departure bath. (Extra Coat Care charges may still apply.)",
       },
       {
         label: 'Additional Dog — Shared Luxury',
-        price: '$50',
+        price: '$60',
         detail:
-          'Same shared-suite care for a compatible same-household dog. Bath and coat-care needs are assessed for each pet individually.',
+          'Same care and amenities for a compatible same-household dog sharing the Luxury Suite.',
       },
       {
         label: 'Holiday / Peak, per pet a night',
         price: '+$10',
-        detail:
-          "Additional boarding rate on designated high-demand dates, including major religious holidays, Spring Break, Memorial Day, Independence Day, Labor Day, Thanksgiving, Christmas and New Year's. Exact peak dates are set by All Paws Inn.",
       },
-    ],
-    notes: [
-      'Potty walks and breaks roughly every two hours during daytime care through 6pm, plus an overnight potty pad.',
-      'Every boarded dog gets two hours of play a day — an hour in the morning, an hour in the evening. More can be purchased.',
-      'Condos are single-dog only and cannot be shared. Shared-suite rates apply to compatible same-household dogs in Standard, Premium or Luxury.',
-      'The Luxury Suite includes a standard departure bath; extra coat care may still apply.',
-      'Boarded pets are fed to their usual home schedule, on food you bring. A food fee may apply if it runs out.',
-      'A $10 per pet, per night holiday and peak fee applies on designated high-demand dates.',
     ],
   },
   {
