@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, MapPin, Phone, Clock } from 'lucide-react'
-import { navLinks, EASE, footer, serviceAreas, type NavLink, GINGR_BOOKING_URL } from '../data'
+import {
+  navLinks,
+  EASE,
+  footer,
+  serviceAreas,
+  socials,
+  type NavLink,
+  GINGR_BOOKING_URL,
+} from '../data'
 import logo from '../images/all-paws-logo.png'
 
 /* "/about/team/", "/about/team", "/about/team/index.html" all mean the same page. */
@@ -261,7 +269,7 @@ export default function Navbar() {
                   {footer.phone}
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href={socials.find(x => x.id === 'instagram')!.url}
                   target="_blank"
                   rel="noreferrer"
                   className="ul-draw font-bold text-bone/85 transition-colors duration-300 hover:text-flame"

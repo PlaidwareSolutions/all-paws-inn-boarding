@@ -8,6 +8,7 @@ const mapQuery = encodeURIComponent(footer.location)
 
 /** The Contact page body — how to reach the house, and how to find it. */
 export default function ContactDetails() {
+  const instagram = socials.find(x => x.id === 'instagram')!
   const facebook = socials.find(x => x.id === 'facebook')!
 
   return (
@@ -81,7 +82,7 @@ export default function ContactDetails() {
                   <span>
                     <span className="label block text-ink/55">Instagram</span>
                     <a
-                      href="https://instagram.com"
+                      href={instagram.url}
                       target="_blank"
                       rel="noreferrer"
                       className="ul-draw mt-1 block body text-ink transition-colors duration-300 hover:text-flame"

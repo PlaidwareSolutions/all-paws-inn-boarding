@@ -560,29 +560,33 @@ export const footer = {
   phone: '(713) 966-2500',
   email: 'info@allpawsinnboarding.com',
   hours: 'Mon – Fri 8am – 6pm · Sat 9am – 5pm · Sun closed',
-  instagram: '@allpawsinn',
+  instagram: '@allpawsinnboarding',
 }
 
 /* ── Social profiles ──
-   PLACEHOLDER URLS: these point at each platform's front page, not at the real
-   profiles — swap in the actual links when they're known. Guessing a handle risks
-   sending people to someone else's account. */
+   Both links are the real accounts. The share tokens they arrive with (Instagram's
+   obrf, Facebook's mibextid) are dropped: they identify whoever copied the link,
+   not the page, and each URL resolves without one. */
 export interface Social {
-  id: 'instagram' | 'facebook' | 'tiktok'
+  id: 'instagram' | 'facebook'
   label: string
   handle: string
   url: string
 }
 
 export const socials: Social[] = [
-  { id: 'instagram', label: 'Instagram', handle: '@allpawsinn', url: 'https://instagram.com' },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    handle: '@allpawsinnboarding',
+    url: 'https://www.instagram.com/allpawsinnboarding',
+  },
   {
     id: 'facebook',
     label: 'Facebook',
     handle: 'All Paws Inn',
     url: 'https://www.facebook.com/profile.php?id=61594323009741',
   },
-  { id: 'tiktok', label: 'TikTok', handle: '@allpawsinn', url: 'https://tiktok.com' },
 ]
 
 /** The towns All Paws Inn serves, in the order the client sequenced for the header. */
