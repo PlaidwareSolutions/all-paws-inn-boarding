@@ -115,19 +115,6 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: 'Dog Boarding',
-    line: 'Private suites, carers awake all night, a report card every morning.',
-    points: [
-      'Condo, Standard, Luxury and Premium suites',
-      'Three walks and a play session every day',
-      'Medication and special diets handled to your notes',
-      'A nightly report card, with photographs',
-    ],
-    from: 'From $37 a night',
-    image: U('1598397678815-c5dc869035b8', 1400),
-    imageAlt: 'A dog asleep on a plush pet bed',
-  },
-  {
     title: 'Dog Daycare',
     line: 'Full and half days of structured play, rest and enrichment.',
     points: [
@@ -142,17 +129,17 @@ export const services: Service[] = [
     imageFocus: '50% 2%',
   },
   {
-    title: 'Cat Boarding',
-    line: 'A dog-free floor with climbing walls, sun shelves and quiet corners.',
+    title: 'Dog Boarding',
+    line: 'Private suites, carers awake all night, a report card every morning.',
     points: [
-      'Condo and Suite rooms, never stacked',
-      'A floor of their own — no dogs, ever',
-      'Window perches and daily one-to-one play',
-      'Litter, food and medication kept to their routine',
+      'Condo, Standard, Luxury and Premium suites',
+      'Three walks and a play session every day',
+      'Medication and special diets handled to your notes',
+      'A nightly report card, with photographs',
     ],
-    from: 'From $25 a night',
-    image: U('1541781774459-bb2af2f05b55', 1400),
-    imageAlt: 'A cat asleep, tucked under a soft duvet',
+    from: 'From $37 a night',
+    image: U('1598397678815-c5dc869035b8', 1400),
+    imageAlt: 'A dog asleep on a plush pet bed',
   },
   {
     title: 'Cat Daycare',
@@ -166,6 +153,19 @@ export const services: Service[] = [
     from: 'From $15 a half day',
     image: U('1637069810813-3aea5273dc7e', 1400),
     imageAlt: 'A ginger and white cat sitting against a bright background',
+  },
+  {
+    title: 'Cat Boarding',
+    line: 'A dog-free floor with climbing walls, sun shelves and quiet corners.',
+    points: [
+      'Condo and Suite rooms, never stacked',
+      'A floor of their own — no dogs, ever',
+      'Window perches and daily one-to-one play',
+      'Litter, food and medication kept to their routine',
+    ],
+    from: 'From $25 a night',
+    image: U('1541781774459-bb2af2f05b55', 1400),
+    imageAlt: 'A cat asleep, tucked under a soft duvet',
   },
   {
     title: 'Bathing',
