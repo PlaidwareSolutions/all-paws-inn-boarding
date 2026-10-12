@@ -90,7 +90,7 @@ export default function PricingDetail({ category }: { category: PriceCategory })
                 </li>
               ))}
             </ul>
-            <BookButton label="Reserve a room" size="lg" className="mt-10" />
+            <BookButton size="lg" className="mt-10" />
           </Reveal>
 
           {/* The sheet prints its conditions under each table, so they sit at the foot of

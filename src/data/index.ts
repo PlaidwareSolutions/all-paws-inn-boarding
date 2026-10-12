@@ -270,31 +270,6 @@ export const pricingCategories: PriceCategory[] = [
     ],
   },
   {
-    title: 'Cat Daycare',
-    intro: [
-      'All Paws Inn cat daycare provides a calmer environment with attentive care, fresh litter boxes, familiar feeding routines, fresh water and opportunities for supervised play and enrichment appropriate for our feline guests.',
-      'Optional extras include additional one-on-one playtime, premium enrichment, medication administration, in-house meals, photo updates, and departure bathing. Please see our add-ons section for full details.',
-    ],
-    items: [
-      {
-        label: 'Full Day',
-        price: '$25',
-      },
-      {
-        label: 'Additional Cat — Full Day',
-        price: '$20',
-      },
-      {
-        label: 'Half Day — Up to 5 Hours',
-        price: '$15',
-      },
-      {
-        label: 'Additional Cat — Half Day',
-        price: '$10',
-      },
-    ],
-  },
-  {
     title: 'Daycare Membership',
     intro: [
       'For pups who just can’t get enough of their friends at All Paws Inn, our daycare memberships make regular playtime easier—and reward families who visit us often.',
@@ -405,6 +380,31 @@ export const pricingCategories: PriceCategory[] = [
       {
         label: 'Holiday / Peak, per pet a night',
         price: '+$10',
+      },
+    ],
+  },
+  {
+    title: 'Cat Daycare',
+    intro: [
+      'All Paws Inn cat daycare provides a calmer environment with attentive care, fresh litter boxes, familiar feeding routines, fresh water and opportunities for supervised play and enrichment appropriate for our feline guests.',
+      'Optional extras include additional one-on-one playtime, premium enrichment, medication administration, in-house meals, photo updates, and departure bathing. Please see our add-ons section for full details.',
+    ],
+    items: [
+      {
+        label: 'Full Day',
+        price: '$25',
+      },
+      {
+        label: 'Additional Cat — Full Day',
+        price: '$20',
+      },
+      {
+        label: 'Half Day — Up to 5 Hours',
+        price: '$15',
+      },
+      {
+        label: 'Additional Cat — Half Day',
+        price: '$10',
       },
     ],
   },
