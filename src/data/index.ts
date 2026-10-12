@@ -377,10 +377,6 @@ export const pricingCategories: PriceCategory[] = [
         detail:
           'Same care and amenities for a compatible same-household dog sharing the Luxury Suite.',
       },
-      {
-        label: 'Holiday / Peak, per pet a night',
-        price: '+$10',
-      },
     ],
   },
   {
@@ -450,10 +446,6 @@ export const pricingCategories: PriceCategory[] = [
         price: '$45',
         detail:
           'For compatible, bonded same-household cats, sharing where appropriate.',
-      },
-      {
-        label: 'Holiday / Peak, per cat a night',
-        price: '+$10',
       },
     ],
   },
