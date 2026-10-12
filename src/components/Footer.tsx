@@ -1,4 +1,4 @@
-import { footer, hoursSummary, serviceAreas } from '../data'
+import { footer, hoursSummary, serviceAreasFooter } from '../data'
 import SocialLinks from './SocialLinks'
 import logo from '../images/all-paws-logo.png'
 
@@ -92,7 +92,7 @@ export default function Footer() {
       <div className="gutter flex flex-col gap-2 pb-6 pt-4 label !tracking-[0.14em] text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:!tracking-[0.26em] lg:pb-4">
         <span className="whitespace-nowrap">© {year} All Paws Inn</span>
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          {serviceAreas.map((city, i) => (
+          {serviceAreasFooter.map((city, i) => (
             <span key={city} className="flex items-center gap-x-2">
               {i > 0 && (
                 <span aria-hidden="true" className="text-teal">

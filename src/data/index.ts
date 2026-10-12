@@ -601,6 +601,23 @@ export const serviceAreas = [
   'Houston',
 ]
 
+/** How many towns the header bar fits on a row before wrapping to the second. */
+const HEADER_COLUMNS = 4
+
+/**
+ * The same towns for the footer's single line. The client's order there is this grid
+ * read down each column instead of across, so it is taken from the list above rather
+ * than written out again — the two cannot then disagree about which towns exist.
+ */
+export const serviceAreasFooter = Array.from(
+  { length: serviceAreas.length },
+  (_, n) => {
+    const column = Math.floor(n / Math.ceil(serviceAreas.length / HEADER_COLUMNS))
+    const row = n % Math.ceil(serviceAreas.length / HEADER_COLUMNS)
+    return serviceAreas[row * HEADER_COLUMNS + column]
+  },
+)
+
 /** Condensed for the footer — the day-by-day table belongs on the Contact page. */
 export const hoursSummary: [string, string][] = [
   ['Mon – Fri', '8:00am – 6:00pm'],
