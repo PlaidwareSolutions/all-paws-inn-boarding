@@ -183,26 +183,6 @@ export const services: Service[] = [
   },
 ]
 
-/* ── Team ── */
-export interface TeamMember {
-  name: string
-  /** Job title, when they have one on the card. */
-  role?: string
-  bio: string
-  /** A real photograph of that person — until we have one, the card shows their initials. */
-  photo?: string
-}
-
-export const team: TeamMember[] = [
-  {
-    name: 'David Little',
-    bio: 'Twenty-plus years in pet hospitality across the United States, from boarding houses to grooming rooms. Runs the floor, the suites and the overnight rota.',
-  },
-  {
-    name: 'Andrea Little',
-    bio: 'Built and ran pet care houses around the country before Clear Lake. Looks after daycare groups, bathing appointments and every guest’s daily routine.',
-  },
-]
 
 /* ── Rates — the pricing flow chart ── */
 export interface PriceItem {

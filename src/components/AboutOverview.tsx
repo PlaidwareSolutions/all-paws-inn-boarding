@@ -15,7 +15,7 @@ const cards = [
   {
     href: '/about/team/',
     title: 'Team',
-    line: 'David and Andrea Little, and the people who feed, walk, groom and sit up all night with your pets.',
+    line: 'The people who feed, walk, groom and sit up all night with your pets — profiles coming soon.',
     image: heroImages[1],
     alt: 'A dog mid-play in the afternoon sun',
   },
