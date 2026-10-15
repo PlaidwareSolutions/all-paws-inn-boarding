@@ -25,11 +25,11 @@ export const slug = (s: string) =>
 export const story = {
   heading: ['Twenty years of pets,', 'now in Clear Lake.'],
   body: [
-    'ALL PAWS INN is run by David and Andrea Little, who have spent more than twenty years in pet hospitality — building and running boarding, daycare and grooming houses across the United States.',
+    'ALL PAWS INN is run by pet care experts who have spent more than twenty years in pet hospitality — building and running boarding, daycare and grooming houses across the United States.',
     'All of that experience now sits on one street in Clear Lake, Houston. Our staff bring 20+ years of hands-on animal care between them, and boarding is not a sideline here — it is the only thing we do, and we intend to do it better than anyone in the business.',
   ],
   pull: '“We have looked after pets all over the country. Clear Lake is where we wanted to put down roots.”',
-  signature: 'David & Andrea Little',
+  signature: 'The All Paws Inn experts',
   image: U('1778100030992-42ca7ed2592b', 1500),
   imageAlt: 'A tabby cat curled up asleep on a plaid blanket',
 }

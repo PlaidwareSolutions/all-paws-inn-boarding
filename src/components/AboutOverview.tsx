@@ -39,7 +39,7 @@ export default function AboutOverview() {
             <Words lines={['The house,', 'and the humans.']} italicLine={1} accentLine={1} inline />
           </h1>
           <p className="lede measure mt-5 text-ink-70">
-            One house in Clear Lake, Houston, run by David and Andrea Little — 20+ years of pet
+            One house in Clear Lake, Houston, run by pet care experts — 20+ years of pet
             hospitality, five minutes from Space Center Houston.
           </p>
         </div>

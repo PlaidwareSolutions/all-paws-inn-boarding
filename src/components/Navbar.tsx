@@ -354,8 +354,12 @@ function NavItem({ link }: { link: NavLink }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.24, ease: EASE }}
-            /* pt- keeps a hoverable bridge between the link and the panel */
-            className={`absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${
+            /* Hangs from the link's left edge. It used to be centred with
+               -translate-x-1/2, but motion animates y by writing an inline transform,
+               which beat the class and left every panel starting at the link's middle
+               and running right — far enough that Contact's ran off the screen.
+               pt- keeps a hoverable bridge between the link and the panel. */
+            className={`absolute left-0 top-full z-50 pt-3 ${
               link.contactCard ? 'w-[19rem]' : 'w-[15rem]'
             }`}
           >
